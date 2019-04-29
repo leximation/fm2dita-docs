@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="bolded"?><?dtall dict="Preconversion"?><?dtall dict="RetagParas"?><?dtall
+dict="retag"?>
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Data Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<task id = "id137JH0V087Q"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Task 1: Preconversion Cleanup</title>
+<shortdesc>Before starting a conversion it is important to analyze,
+clean up, and possibly rewrite and retag the content so it “fits”
+better into the DITA model. It is best to do as much cleanup before
+rather than after conversion.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-07-19"/>
+<revised modified = "2016-03-03"/></critdates></prolog>
+<taskbody><context><p><indexterm>preconversion cleanup</indexterm>It’s
+easy to say “rewrite and retag to fit the DITA model,” while actually
+doing that can be quite time consuming. However, it really is best
+to take as much time as you can to do this work before converting
+to DITA. Doing this work post-conversion will be even more difficult
+and time consuming.</p><p>You’ll need to do the following:</p><ul><li><p><indexterm>style
+tagging, inconsistent</indexterm>Clean up inconsistently or improperly
+tagged content. Any formatting overrides assigned to text or paragraphs
+will be lost in the conversion.</p><p>If this formatting is important
+to preserve, you must make sure that each unique “style” is defined
+as a character or paragraph tag. This is frequently a problem with
+text ranges that have been bolded or italicized with the “B” or
+“I” buttons.</p><p>The FM2DITA <xref href = "tagcleanup.xml#id137QB08055Z"
+type = "topic" format = "dita" scope = "local"></xref> command is
+designed to help with character tagging inconsistencies.</p><p>The
+FM2DITA <xref href = "untagboundaryspaces.xml#id1372F070P5Z" type
+= "topic" format = "dita" scope = "local"></xref> command ensures
+that all spaces between tagged text ranges have no character tag
+applied. XML whitespace normalization rules will typically cause
+leading and trailing whitespace in an element to be removed, so
+if an inline element starts or ends with whitespace, that will often
+be lost in a conversion.</p></li>
+<li><p><indexterm>conditional tagging, inconsistent</indexterm>Clean
+up inconsistent use of conditional tagging.</p><p>It is difficult
+to transfer conditional tagging to DITA’s filtering attributes.
+First, for this to map properly, the start/end points of a condition
+must align with the start/end tag of the corresponding element.
+Because this unlikely to work well for inline tagging (even if you
+are able to align the start/endpoints), you’ll end up with less
+than ideal DITA content, so it is best to assume that all conditional tagging
+should be applied at the paragraph level.</p><p>The FM2DITA <xref
+href = "conditiontoattribute.xml#id131JK20A0QN" type = "topic" format
+= "dita" scope = "local"></xref> command transfers conditions that
+exist at the start of a paragraph to the corresponding element(s).
+By default the condition names are assigned to the element’s product
+attribute, but you can specify a different default and can define
+specific mapping of condition to attribute names.</p><p>The FM2DITA <xref
+href = "renameconditions.xml#id131JK000M30" type = "topic" format
+= "dita" scope = "local"></xref> command can be used before conversion
+to globally rename conditions if the current condition names are
+not appropriate to be used as attribute values going forward.</p><p>The
+FM2DITA <xref href = "showallconditions.xml#id131JK0QD0PF" type
+= "topic" format = "dita" scope = "local"></xref> command will show
+all conditions in the book or file. It is always best to show all
+conditions in all files before performing a conversion.</p></li>
+<li><p>Rewrite your content so it’s consistent and fits into the
+parts of the DITA model you plan to use.</p><p>If you want your
+topics to include a short description (the DITA &lt;shortdesc> element),
+make sure every heading that defines a new topic is followed by
+a paragraph to be used as the short description.</p><p>To increase
+the possibility for topic reuse, it’s suggested that you reduce
+the number of inline cross-references. If possible, consider moving
+all of your cross-references into relationship tables; conversion
+time is an ideal time to make that move.</p></li>
+<li><p><indexterm>retag paragraph styles</indexterm><indexterm>retag
+table formats</indexterm>Retag the paragraph styles so that the
+content in the various topics is clearly and unambiguously identified.
+It’s better to have too many paragraph tags than too few.</p><p>If
+you are converting from chapter-based FM files into multiple topic
+types, you’ll likely need to develop a tagging scheme with new style
+names that allow you to mark sections of content as belonging to
+specific sections within each DITA topic model. This is particularly
+important for the task model, which contains multiple sections with
+similar types of content; the only way for the conversion table
+to distinguish between a “prereq” or “context” paragraph is through
+the paragraph tag name.</p><p>The FM2DITA <xref href = "retagparas.xml#id136OF2009Y4"
+type = "topic" format = "dita" scope = "local"></xref> command can
+be used to assign prefixes to existing paragraph tag names within
+certain sections. This command can make multiple passes on the content
+to build up tag names which create unique, section-based tag groups,
+that allow a conversion table to create properly structured DITA topics.</p><p>Similarly,
+the FM2DITA <xref href = "retagtablesinparas.xml#id137QB0A02Y4"
+type = "topic" format = "dita" scope = "local"></xref> command will
+assign prefixes to table format names within certain paragraph tags.
+This can help to ensure that tables get wrapped in the proper elements.</p></li></ul><p><i>A
+brief note about Index marker conversion:</i></p><ul><li><p><indexterm>Index
+marker conversion</indexterm>If your content contains Index markers
+(converted to fm-indexterm elements while in FM), the export API
+client associated with the structured application imported into
+the files in Task 3, is responsible for converting from FrameMaker marker
+syntax to the corresponding DITA markup. If those Index markers define
+“See” and/or “See also” entries, the conversion to the proper DITA elements
+is dependent on the text in those markers matching up with the syntax expected
+by the API client. If you’re using DITA-FMx, make sure that the
+character tags used to format the entry match those in the Index
+Options dialog (in DITA Options). If you’re using another export
+API client, you should do some testing to make sure the Index markers
+will convert as expected. (Or just assume that you’ll fix them in
+a post-conversion pass.)</p></li></ul><p>Once your files have been
+properly cleaned up and tagged, you’re ready to start the conversion
+process.</p></context>
+<steps><step><cmd>Create a folder named <filepath>conversion</filepath> where
+the conversion process will be performed. Create <filepath>source</filepath> and <filepath>out</filepath> folders
+within the <filepath>conversion</filepath> folder.</cmd>
+<info><ul><li>These folder names can be anything that makes sense
+for your workflow.</li></ul></info></step>
+<step><cmd>Copy the source FrameMaker and any auxiliary files (graphics,
+etc) to the <filepath>source</filepath> folder.</cmd>
+<info><ul><li>Only references to files that are converted at the
+same time will be resolved. If you have references to other books,
+those will need to be fixed in a post-conversion pass.</li>
+<li>If you are converting multiple FM files and there is no book
+file, create one. This isn’t required, but it’s easier to run the
+automation commands on a book rather than each file individually.</li></ul></info></step>
+<step><cmd status = "changed">Create and set up an <filepath>fm2dita.ini</filepath> file
+for this project. This INI file should be created in the <filepath
+    status = "new">conversion</filepath> folder.</cmd>
+<info><ul><li status = "changed">When an FM2DITA command is run
+on any FM or BOOK file, the current folder is checked for an <filepath>fm2dita.ini</filepath> file.
+If that file is not found, the parent folders are scanned (allowing
+you to maintain just one INI file per project). If that file is
+not found, the default <filepath>fm2dita.ini</filepath> file (in
+the Pubs-Tools folder) is used.</li></ul></info></step>
+<step><cmd>Open the book file.</cmd></step>
+<step><cmd>Delete any frontmatter, backmatter, and other generated
+or non-content files.</cmd>
+<info><ul><li>The only files that should remain in the book are
+“content” files. The conversion table is typically not set up to
+support cover pages or other frontmatter and backmatter.</li></ul></info></step>
+<step><cmd>Open all files in the book.</cmd>
+<info><ul><li>This isn’t required, but can simplify problems that
+are caused by missing graphics or unresolved references. If you
+don’t open the files, the FM2DITA commands will open each file,
+then save it before closing.</li>
+<li id = "openall">Place focus on the book, press <uicontrol>Shift</uicontrol> and
+click <menucascade><uicontrol>File</uicontrol><uicontrol>Open All
+Files in Book</uicontrol></menucascade></li></ul></info></step>
+<step><cmd>Convert any text insets to text.</cmd>
+<info><ul><li>If any exist, locate each inset, double-click, select <uicontrol>Convert
+to text</uicontrol>, repeat. The FM2DITA conversion process is currently
+not set up to support text insets (although this may be supported
+in the future).</li></ul></info></step>
+<step><cmd>Perform any necessary preconversion processing.</cmd>
+<info><ul><li>If you are using any of the FM2DITA preconversion
+tools, make sure that the <filepath>fm2dita.ini</filepath> file
+has been set up properly and copied to the <filepath>source</filepath> folder.</li></ul></info></step>
+<step><cmd>Resolve all cross-references.</cmd>
+<info><ul><li>Any unresolved references will not be resolved in
+the XML files.</li>
+<li>With focus on the book, use the <menucascade><uicontrol>Edit</uicontrol>
+<uicontrol>Update References</uicontrol></menucascade> command.</li>
+<li>Also make sure all graphics are “found”. You can convert with
+missing graphics, but it’ll likely interrupt the conversion process
+at various points.</li></ul></info></step>
+<step><cmd>Confirm that all user variables, cross-reference formats,
+table formats, and styles are included in the conversion table.</cmd>
+<info><ul><li>Place focus on book, choose <menucascade><uicontrol>Pubs-Tools</uicontrol>
+<uicontrol>FM2DITA</uicontrol><uicontrol>Catalog Report</uicontrol></menucascade></li>
+<li>Compare the results to previous catalog reports. If new objects
+or styles exist, add them to the conversion table.</li></ul></info></step>
+<step><cmd>Save and optionally close all files in the book.</cmd>
+<info><ul><li id = "saveall">Place focus on book, press <uicontrol>Shift</uicontrol> and
+click <menucascade><uicontrol>File</uicontrol><uicontrol>Save All
+Files in Book</uicontrol></menucascade></li>
+<li id = "closeall">Place focus on book, press <uicontrol>Shift</uicontrol> and
+click <menucascade><uicontrol>File</uicontrol><uicontrol>Close All
+Files in Book</uicontrol></menucascade></li></ul></info></step>
+<step><cmd>Optionally save the <filepath>source</filepath> folder
+to a new name (<filepath>source-1</filepath>?) to make it easier to
+roll back to this point in case something goes wrong.</cmd></step></steps></taskbody></task>

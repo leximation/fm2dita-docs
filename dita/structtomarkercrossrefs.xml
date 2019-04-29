@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="Relinks"?><?dtall dict="Struct"?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id40082c54-e6d6-46b9-870e-2df0e7ad5651"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Struct Cross-refs to Marker Cross-refs</title>
+<shortdesc>Relinks structure-based cross-references to marker-based
+cross-references.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2016-03-05"/></critdates></prolog>
+<body><p status = "changed">The FM2DITA tools are designed to process
+unstructured content to DITA. If you are starting with structured
+FM files, you will likely need to strip the structure from the files
+and continue by using the object to element based mapping provided
+by a conversion table.</p>
+<p status = "new">However, before stripping the structure, you should
+run this command to transfer the cross-ref linking from the structured
+model to markers.</p></body></topic>

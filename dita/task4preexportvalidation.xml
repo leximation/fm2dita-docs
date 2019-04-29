@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<task id = "id137JH4004QN"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Task 4: Pre-export Validation</title>
+<shortdesc>All files should be valid before exporting to XML.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<author>scottp</author>
+<critdates><created date = "2013-07-19"/>
+<revised modified = "2016-03-03"/></critdates></prolog>
+<taskbody><context><p>Before saving FM binary files to XML, they
+must be valid. Saving an invalid file to XML may work (with errors
+reported), but it may also cause FrameMaker to crash. It is always
+best to do as much cleanup as possible in the FM binary files before saving
+to XML.</p></context>
+<steps><step><cmd>Open the book and all files from <xref href =
+"task3conversionprocessing.xml#id137JH300DXW" type = "task" format
+= "dita" scope = "local"></xref>.</cmd></step>
+<step><cmd>Validate each file in the book.</cmd>
+<info><ul><li>For each document in the book, use <menucascade>
+<uicontrol>Element</uicontrol><uicontrol>Validate</uicontrol></menucascade> to
+find and fix any problems.</li>
+<li><indexterm>validation problems</indexterm>If you run into problems
+that can’t easily be fixed and want to reconvert a single file,
+that should be fine; you don’t need to reconvert the entire book.</li>
+<li><indexterm>NoName element, in book</indexterm>It’s OK that the
+book contains the element of NoName at the root.</li></ul></info></step>
+<step><cmd>Carefully review files for errors like empty paragraphs
+or other issues that are valid but may result in less than ideal
+structure.</cmd>
+<info><ul><li>It is much easier to review as chapter files than
+after breaking into topics.</li></ul></info></step>
+<step><cmd>Save and optionally close all files in the book.</cmd>
+<info><ul><li id = "saveall">Place focus on book, press <uicontrol>Shift</uicontrol> and
+click <menucascade><uicontrol>File</uicontrol><uicontrol>Save All
+Files in Book</uicontrol></menucascade></li>
+<li id = "closeall">Place focus on book, press <uicontrol>Shift</uicontrol> and
+click <menucascade><uicontrol>File</uicontrol><uicontrol>Close All
+Files in Book</uicontrol></menucascade></li></ul></info></step>
+<step><cmd>Optionally save the <filepath>out</filepath> folder to
+a new name (<filepath>out-3</filepath>?) to make it easier to roll back
+to this point in case something goes wrong.</cmd></step></steps></taskbody></task>

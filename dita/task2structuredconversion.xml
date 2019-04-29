@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<task id = "id137JH0WF030"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Task 2: Structured Conversion</title>
+<shortdesc>Creates structured BOOK and FM files from the unstructured
+source files.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<author>scottp</author>
+<critdates><created date = "2013-07-19"/>
+<revised modified = "2016-03-03"/></critdates></prolog>
+<taskbody><context><p><indexterm>conversion table<indexterm>applying</indexterm></indexterm>After
+completing any preconversion cleanup, the next step is to apply
+the conversion table to the documents.</p><note>For FrameMaker 7.2
+users, menu items indicated on the <uicontrol>StructureTools</uicontrol> menu
+can be found on the <uicontrol>File</uicontrol> menu.</note></context>
+<steps><step><cmd>Open the book and all files from <xref href =
+"task1preconversioncleanup.xml#id137JH0V087Q"
+type = "task" format = "dita" scope = "local"></xref>.</cmd></step>
+<step><cmd>Apply the conversion table to the book.</cmd>
+<info><ul><li>Open conversion table file</li>
+<li>Place focus on the book</li>
+<li>Choose <menucascade><uicontrol>StructureTools</uicontrol>
+<uicontrol>Utilities</uicontrol><uicontrol>Structure Current Book</uicontrol></menucascade>.
+In the dialog, select the conversion table from the list and specify
+the output folder as <filepath>out</filepath> subfolder (created
+in Task 1). Select to overwrite the old files.</li>
+<li>FrameMaker Log may report errors, check the console, probably
+nothing useful or important though.</li>
+<li>This creates structured FM binary files from the unstructured
+files.</li></ul></info></step>
+<step><cmd>Close the original unstructured book and files. Don't
+save when closing.</cmd></step>
+<step><cmd>Open all structured files.</cmd>
+<info><ul><li id = "openall">Place focus on the “structured” book,
+press <uicontrol>Shift</uicontrol> and click <menucascade><uicontrol>File</uicontrol>
+<uicontrol>Open All Files in Book</uicontrol></menucascade></li></ul></info></step>
+<step><cmd><indexterm>root element</indexterm>Review all files,
+verify that all have a &lt;dita> root element.</cmd>
+<info><ul><li>If some files don’t have a &lt;dita> root, determine
+what didn't convert properly. You’ll either need to fix some invalid
+tagging in the source file or possibly update the conversion table.
+Fix things and start over at step 2.</li>
+<li>Note that you can’t “validate” the files at this point since
+there is no structured application assigned to the files.</li>
+<li>If the conversion table was recently modified or you are processing
+a new book, review extra the first time. Check the resulting structure
+to make sure everything is getting wrapped and tagged properly.</li></ul></info></step>
+<step><cmd>Save and optionally close all files in the book.</cmd>
+<info><ul><li id = "saveall">Place focus on book, press <uicontrol>Shift</uicontrol> and
+click <menucascade><uicontrol>File</uicontrol><uicontrol>Save All
+Files in Book</uicontrol></menucascade></li>
+<li id = "closeall">Place focus on book, press <uicontrol>Shift</uicontrol> and
+click <menucascade><uicontrol>File</uicontrol><uicontrol>Close All
+Files in Book</uicontrol></menucascade></li></ul></info></step>
+<step><cmd>Optionally save the <filepath>out</filepath> folder to
+a new name (<filepath>out-1</filepath>?) to make it easier to roll back
+to this point in case something goes wrong.</cmd></step></steps></taskbody></task>

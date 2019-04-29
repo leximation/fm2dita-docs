@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH show?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id131JK300GBI"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Variables to Conrefs</title>
+<shortdesc>Creates conrefs from FM variables in the current file
+or book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2013-08-04"/></critdates></prolog>
+<body><p><indexterm>variables, to conrefs</indexterm><indexterm>conref,
+conversion from variables</indexterm>This command requires initial
+setup of the ConrefLibrary parameter in the <filepath>fm2dita.ini</filepath> file. Set
+the ConrefLibrary parameter to the name of the conref library file
+to be created or appended. This file is created in the same folder
+as the generated XML files.</p>
+<p>When converting documents that contain variables, your conversion
+table must use the “UV:&lt;varname>” syntax in order to map the
+variables to a specific element. In order to be processed by this
+command, the mapped element must assign the attribute “conrefid” with
+the value being that to be used as the ID of the conref. The conversion
+table entry for a “ProdName” variable would be as follows:</p>
+<table frame = "all" colsep = "1" rowsep = "1">
+<tgroup cols = "3" colsep = "1" rowsep = "1" outputclass = "FormatA">
+<colspec colnum = "1" colname = "1" colwidth = "33*"/>
+<colspec colnum = "2" colname = "2" colwidth = "33*"/>
+<colspec colnum = "3" colname = "3" colwidth = "33*"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Wrap this object</entry>
+<entry colname = "2">In this element</entry>
+<entry colname = "3">With this qualifier</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "0">
+<entry colname = "1">UV:ProdName</entry>
+<entry colname = "2">ph[conrefid=”prodname”]</entry>
+<entry colname = "3"></entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>After applying the conversion table, the variable would be wrapped
+in a &lt;ph> element with the attribute @conrefid=’prodname’. Once
+this command has been run, the @conrefid attribute will be replaced
+with the proper @conref attribute that references the element in the
+conref library file.</p>
+<p>The conref library file is created if it doesn’t already exist,
+then it is appended with a new entry for each variable definition
+(instance of a unique @conrefid in the source file). The conref
+source is created using a &lt;p> tag container with a label that
+matches the @conrefid value followed by the inline element matching
+the element used by the variable. The ID attribute matches that
+of the @conrefid attribute. Each entry will follow this format:</p>
+<codeblock>&lt;p>prodname: &lt;ph id="prodname">DITA-FMx&lt;/ph>&lt;/p></codeblock>
+<p>This command must be run after the EDD has been applied.</p></body></topic>

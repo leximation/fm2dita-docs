@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+]>
+<?dtall dict="Preconversion"?><?dtall dict="retagging"?><topic
+    id = "id12AR8F0A05Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Using FM2DITA</title>
+<shortdesc>FM2DITA is a FrameMaker plugin that provides numerous
+tools and utilities that assist in the process of converting unstructured
+FrameMaker files to DITA XML.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2019-02-04"/></critdates></prolog>
+<body><p status = "changed">This plugin supports FrameMaker versions
+7.2, 8, 9, 10, 11, 12, 2015, 2017, and 2019.</p>
+<p status = "changed">Documentation updated on <ph  outputclass
+= "fmvar:Current Date (Long)">February 4, 2019</ph> for version
+1.05.</p>
+<p><i status = "changed">FM2DITA will continue to be updated over
+time. Check for updates to get the latest tools!</i></p>
+<p>FM2DITA provides the following types of automation:</p>
+<ul><li><p>Tools for analyzing existing content such as counting
+topics in a book, as well as generating reports of style, object,
+and conditional text usage</p></li>
+<li><p>Preconversion tools for cleaning up, retagging, and renaming
+objects in the unstructured FM files</p></li>
+<li><p>Processing of structured FM binary files to assist with cleanup
+and refactoring into proper DITA structures (see the list of commands
+for details)</p></li>
+<li><p>Breaks each FM file into multiple DITA XML topics, and generates
+root and chapter maps preserving the hierarchy that exists in the
+unstructured files</p></li></ul>
+<p>Contact us at &lt;<ph audience = "web print">tools AT leximation
+DOT com</ph><xref href = "mailto:tools@leximation.com" format =
+"html" scope = "external" audience = "help">tools@leximation.com</xref>>.</p></body></topic>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id55d74a31-d043-4183-b6af-f9daa83607c5"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>List Import/Export Filters</title>
+<shortdesc status = "changed">Generates a list of all import and
+export filters currently available.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2016-03-05"/></critdates></prolog>
+<body><p status = "changed">The ImageType parameter used by the
+AFrame to Raster command accepts the following string values: JPG,
+PNG, GIF, TIF, or a valid export filter hint string. The valid export
+hint strings may vary depending on your installation. This command generates
+the list of all import and export filters and their associated “hint
+strings.”</p></body></topic>

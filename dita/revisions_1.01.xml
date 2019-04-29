@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id13AQH0Q505Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>1.01 - 29 November 2013</title>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-10-26"/>
+<revised modified = "2013-11-29"/></critdates></prolog>
+<body><section><title>New Features</title><dl><dlentry><dt>Added
+modeless dialog “command pods”</dt>
+<dd>On the new <uicontrol>Reports and Command Control</uicontrol> menu
+are the following new commands: <uicontrol>Preconversion Pod</uicontrol>, <uicontrol>Conversion
+Pod</uicontrol>, and <uicontrol>Write XML Pod</uicontrol>. These dialogs
+provide easy access to the associated commands.</dd></dlentry>
+<dlentry><dt>Added commands for creating and editing the INI file</dt>
+<dd>On the new <uicontrol>Reports and Command Control</uicontrol> menu
+are the following new commands: <uicontrol>Write INI for Document</uicontrol> and <uicontrol>Edit
+INI for Document</uicontrol>. These commands make it easier to work
+with the current project’s <filepath>fm2dita.ini</filepath> file.</dd></dlentry>
+<dlentry><dt>Added new Table to Text command</dt>
+<dd>Converts tables of specified formats to text.</dd></dlentry>
+<dlentry><dt>Added a new building block and building block modifiers</dt>
+<dd>To support volumn numbering, you can use the $FM_VOLNUM building
+block. Now, in addition to numeric modifiers (for controlling the
+length of the text that results from a building block), you can
+include the modifiers ‘U’, ‘L’, and ‘T’, for “uppercase”, “lowercase”,
+and “title case”.</dd>
+<dd>Because of the new case modifiers, the case-specific building
+blocks (such as $FM_FILENAME_LC, and $TITLE_LC) have been removed
+from the documentation, although they will still work as expected.
+Also removed the $T_MIN and $T_SEC building blocks from the documentation
+because of their limited usefulness.</dd></dlentry>
+<dlentry><dt>Added new Delete Elements command</dt>
+<dd>This command deletes the specified element(s).</dd></dlentry>
+<dlentry><dt>Added the Map Hypertext Markers command</dt>
+<dd>This is a partial implementation of supporting Hypertext markers.
+At this point, only the “message URL” syntax is supported.</dd></dlentry>
+<dlentry><dt>Added the Build Menucascades command</dt>
+<dd>Tool for wrapping uicontrol elements with a character delimiter
+(like “>”) in a menucascade element.</dd></dlentry>
+<dlentry><dt>Added programmatic control of FM2DITA commands</dt>
+<dd>Most of the FM2DITA commands now have “API codes” which can
+be used with the FrameMaker FDK, ExtendScript, or FrameScript to
+automate a custom conversion process.</dd></dlentry></dl></section>
+<section><title>Sample File and Structure Application Updates</title><p>No
+changes or updates have been made to the structure application or
+sample files.</p></section>
+<section><title>Bug Fixes / Minor Updates</title><dl><dlentry><dt>Added
+the new <uicontrol>Reports and Command Control</uicontrol> menu</dt>
+<dd>The report commands have been moved to this menu, and new commands
+have been added.</dd></dlentry>
+<dlentry><dt>The Unwrap Elements command now unwraps table object
+elements</dt>
+<dd>If a table object element (like tgroup) is specified for this
+command, that table will be unwrapped.</dd></dlentry>
+<dlentry><dt>The XML writing commands create folders if defined
+by the filename template</dt>
+<dd>When generating DITA topics or maps, if the filename template
+indicates a path for the file, that folder will be created if needed.</dd></dlentry>
+<dlentry><dt>The Fix Tables command supports width and shading</dt>
+<dd>Two new INI parameters, SaveTableWidth and SaveTableShading
+are available.</dd></dlentry>
+<dlentry><dt>Chapter map filenames can now be based on the topic
+title</dt>
+<dd>If your map template (MapNameTpl INI parameter) uses a building
+block based on the “title”, it uses the root topic title in that
+file.</dd></dlentry>
+<dlentry><dt>Fixed xref corruption on XML topic creation</dt>
+<dd>In some cases, xrefs were getting corrupted. This seems to be
+fixed now.</dd></dlentry>
+<dlentry><dt>Fixed problem that caused the last topic in a file
+from being written to XML</dt>
+<dd>In some cases, the last (root) topic in a chapter file was not
+being written to XML. This has been fixed.</dd></dlentry>
+<dlentry><dt>Update the Merge Code Lines command</dt>
+<dd>This command now compares the value of the outputclass attribute
+to determine if lines should merge or not.</dd></dlentry>
+<dlentry><dt>Root map can now be written as a bookmap</dt>
+<dd>If the RootMapIsBookmap parameter is set to “1”, the root map
+is written as a bookmap, if set to “0” it is written as a map.</dd></dlentry>
+<dlentry><dt>Change default of MoveTblOutputclass INI parameter</dt>
+<dd>The default value for MoveTblOutputclass is now “0” instead
+of “1”.</dd></dlentry></dl></section></body></topic>

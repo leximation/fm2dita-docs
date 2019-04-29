@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="DeleteElem"?><?dtall dict="ElemName"?><?dtall dict="linking=’sourceonly"?><?dtall
+dict="linking=’targetonly"?><?dtall dict="RellinksToReltable"?><?dtall
+dict="reltables"?><?dtall dict="xtrf"?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-StatusNew AsIs CHANGEBAR show?>
+<?Fm Condition DITA-StatusChanged AsIs CHANGEBAR show?>
+<?Fm Condition DITA-StatusUnchanged AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+<?Fm Condition DITA-StatusDeleted AsIs STRIKETHROUGH show?>
+
+<?Fm BoolCondExpr "DITA-Data"OR"DITA-Cleanup"OR"DITA-Comment"OR"DITA-Prolog"OR"DITA-StatusNew"OR"DITA-StatusChanged"OR"DITA-StatusUnchanged"OR"DITA-StatusDeleted" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id142AA0708UI" status = "new"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Related Links to Reltable</title>
+<shortdesc status = "new">Generates a “reltable” map from the related
+links in a file or book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2014-02-10"/>
+<revised modified = "2016-04-27"/></critdates></prolog>
+<body status = "changed"><p status = "changed"><indexterm>cross-ref<indexterm>conversion</indexterm></indexterm><indexterm>xref
+conversion</indexterm>This command relies on proper setup of parameters
+in the RellinksToReltable section of the <filepath>fm2dita.ini</filepath> file.
+It creates a 2-column reltable for each document. The first column
+is assigned relcolspec/@linking=’sourceonly’ and the second column
+is assigned relcolspec/@linking=’targetonly’.</p>
+<p status = "changed">The <parmname status = "new">ElemName</parmname> parameter
+in the RellinksToReltable section specifies the “related-links”
+element. This element is scanned for descendant elements that contain <synph
+    status = "new" outputclass = "attribute">href</synph> or <synph
+    status = "new" outputclass = "attribute">xtrf</synph> attributes
+with a non-null value. These attribute values are assumed to be
+the target topic and are used as the basis for generating links
+in the reltable. If you’d like this group of elements deleted after
+processing (from the <parmname status = "new">ElemName</parmname> element),
+set <parmname status = "new">DeleteElem</parmname> to “1”.</p>
+<p status = "new">After processing, one or more separate maps are
+created that contain the relationship tables. You must manually
+link these “reltable” maps (with a mapref element) into your root
+or chapter maps, or copy/paste the reltables into those maps.</p>
+<p status = "changed">This command must be run after the <cmdname
+conref = "_shared.xml#id131KC0I0VHS/cmd_fix-xrefs" status = "changed"></cmdname> command
+has been run, and before <cmdname conref = "_shared.xml#id131KC0I0VHS/cmd_shred-topics"
+status = "changed"></cmdname>.</p></body></topic>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH show?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id131JK00H0RO"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Assign IDs to Topics</title>
+<shortdesc>Assigns unique ID attribute values to all topics in the
+current file or book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2013-08-04"/></critdates></prolog>
+<body><p><indexterm>assign IDs to topics</indexterm><indexterm>topic
+IDs, assigning</indexterm>The format of ID values assigned to topics
+are defined in the <filepath>fm2dita.ini</filepath> file by the
+IdPrefix and IdType parameters. By default IdPrefix is set to “id”
+and IdType is “GUID”.</p>
+<p>This command should be run before running the other FM2DITA commands
+to ensure all topics are properly marked. It must be run after the
+EDD has been applied since it relies on the default class attribute
+values to identify topic elements (they contain the string “topic/topic”).</p></body></topic>

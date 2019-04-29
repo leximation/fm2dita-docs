@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="TagCleanup"?><topic id = "id137QB08055Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Tag Cleanup</title>
+<shortdesc>Provides a method for reviewing character tagging and
+applying new styles.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-07-26"/>
+<revised modified = "2014-02-10"/></critdates></prolog>
+<body><p><indexterm>character tagging, cleanup</indexterm>The Tag
+Cleanup dialog displays a list of character tag names. Choosing
+the Next button selects the next instance of bold or italic text
+in the document. If the selected text range is tagged with a character
+style, that name displays in the bottom of the dialog, if no tag
+is applied, the font property displays as “&lt;italic>” or “&lt;bold>”.
+To change the tagging for this range, select a tag name from the
+list, and choose Apply Tag, or click the Remove Styling button.
+Choose the Next button to move to the next instance of inline formatting.</p>
+<p>By default, the tags listed in the dialog are the tag names defined
+in the document. If you’d like to use a subset of the tags, or assign
+tags that do not exist in the document, you’ll need to edit the
+TagCleanup section of the <filepath>fm2dita.ini</filepath> file.
+The following example shows how to specify that only 4 tags are
+available in this dialog.</p>
+<codeblock status = "changed" outputclass = "ini">[TagCleanup] 
+UseTagsFromFile=0 
+NewCharColor=Red 
+Count=4 
+1=uicontrol 
+2=varname 
+3=userinput 
+4=wintitle</codeblock>
+<p>Use this command any time before applying the conversion table.</p></body></topic>

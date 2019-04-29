@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE hide?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<task id = "id137JH4004QN"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Task 5: Validate</title>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-07-19"/></critdates></prolog>
+<taskbody><steps><step><cmd>Validate all files.</cmd>
+<info><ul><li>For each document in book, use <menucascade><uicontrol>Element</uicontrol>
+<uicontrol>Validate</uicontrol></menucascade> to find problems and
+fix.</li>
+<li>It’s OK that book element of NoName as special case.</li></ul></info></step>
+<step><cmd>Carefully review files for errors like empty paras or
+other issues that are valid but not good.</cmd>
+<info><ul><li>Much easier to review as chapter files than once shredded
+into topics.</li></ul></info></step>
+<step><cmd>Save and optionally close all files.</cmd>
+<info><ul><li conref = "#id131MHH0F0Y4/saveall"></li><li conref
+= "#id131MHH0F0Y4/closeall"></li></ul></info></step>
+<step><cmd>Make a copy of the current <filepath>out</filepath> folder
+to be used if something goes wrong with later processing.</cmd>
+<info><ul><li>Duplicate <filepath>out</filepath> to <filepath>out.2</filepath> (or
+some such name so you can roll back to this point)</li></ul></info></step></steps></taskbody></task>

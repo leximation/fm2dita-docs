@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="AddPostion"?><?dtall dict="AltTableTypes"?><?dtall dict="AttributeDisplay"?><?dtall
+dict="BeginPara"?><?dtall dict="BuildMenucascades"?><?dtall dict="CheckParentCond"?><?dtall
+dict="CondToAttrMap"?><?dtall dict="ConrefLibrary"?><?dtall dict="choicetable"?><?dtall
+dict="condname"?><?dtall dict="condname>=&lt;attrname"?><?dtall dict="DefaultCondToAttr"?><?dtall
+dict="DeleteAttrs"?><?dtall dict="DeleteEmpty"?><?dtall dict="DeleteMarkers"?><?dtall
+dict="DeleteRelLinks"?><?dtall dict="Delim"?><?dtall dict="EndPara"?><?dtall
+dict="FirstPara"?><?dtall dict="FmXrefAttr"?><?dtall dict="glossentry"?><?dtall
+dict="H&lt;n"?><?dtall dict="IdPrefix"?><?dtall dict="IdType"?><?dtall dict="ImagePathMap"?><?dtall
+dict="InnerElem"?><?dtall dict="ini"?><?dtall dict="li"?><?dtall dict="MapNameTpl"?><?dtall
+dict="MarkerType"?><?dtall dict="MatchSpec"?><?dtall dict="MergeElems"?><?dtall
+dict="MoveMarkers"?><?dtall dict="MoveParaMarkersTo"?><?dtall dict="MoveTblOutputclass"?><?dtall
+dict="MoveTopicTitleMarkersTo"?><?dtall dict="menucascade"?><?dtall dict="NewCharColor"?><?dtall
+dict="NumPasses"?><?dtall dict="newpath"?><?dtall dict="oldname"?><?dtall
+dict="oldname>=&lt;newname"?><?dtall dict="origpath"?><?dtall dict="origpath>=&lt;newpath"?><?dtall
+dict="ParaTags"?><?dtall dict="pgwide"?><?dtall dict="RenameCondMap"?><?dtall
+dict="ReqSpec"?><?dtall dict="RetagParas"?><?dtall dict="RetagTablesInParas"?><?dtall
+dict="RootMapIsBookmap"?><?dtall dict="SaveTableShading"?><?dtall dict="SaveTableWidth"?><?dtall
+dict="SourceType"?><?dtall dict="StopWords"?><?dtall dict="simpletablebody"?><?dtall
+dict="simpletablehead"?><?dtall dict="stentry"?><?dtall dict="sthead"?><?dtall
+dict="strow"?><?dtall dict="TabToSpaces"?><?dtall dict="TagCleanup"?><?dtall
+dict="TagFmtStr"?><?dtall dict="TagList"?><?dtall dict="TblFmtStr"?><?dtall
+dict="TopicAppName"?><?dtall dict="TopicElems"?><?dtall dict="TopicHeadings"?><?dtall
+dict="TopicNameTpl"?><?dtall dict="tableType"?><?dtall dict="tbody"?><?dtall
+dict="tbodyCell(s"?><?dtall dict="tbodyReplacement"?><?dtall dict="tbodyRow"?><?dtall
+dict="thead"?><?dtall dict="theadCell(s"?><?dtall dict="theadReplacement"?><?dtall
+dict="theadRow"?><?dtall dict="UnwrapElems"?><?dtall dict="UnwrapTables"?><?dtall
+dict="UnwrapTablesPrefix"?><?dtall dict="UseTagsFromFile"?><?dtall dict="uicontrol"?><?dtall
+dict="WrapperElem"?><topic id = "id131KAB00P5Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Editing the fm2dita.ini File</title>
+<shortdesc>The fm2dita.ini file defines the configuration settings
+for all of the FM2DITA commands.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-20"/>
+<revised modified = "2017-06-06"/></critdates></prolog>
+<body status = "changed"><p><indexterm>fm2dita.ini file</indexterm><indexterm>configuration
+settings</indexterm><indexterm>fm2dita.ini file<indexterm>location</indexterm></indexterm>The <filepath>fm2dita.ini</filepath> file
+controls many of the default settings for the FM2DITA processing. A
+default version of this file should be created in one of the following
+locations:</p>
+<ul><li><p>Windows XP: <filepath>&lt;program files>\Adobe\FrameMaker&lt;ver>\PubsTools\fm2dita.ini</filepath></p></li>
+<li><p status = "changed">Windows Vista, 7, 8, or 10: <filepath>&lt;appdata>\Adobe\FrameMaker&lt;ver>\PubsTools\fm2dita.ini</filepath></p></li></ul>
+<p status = "new">To locate this folder, use the <menucascade
+    status = "new"><uicontrol status = "new">Pubs-Tools</uicontrol>
+<uicontrol status = "new">Open Pubs-Tools Folder</uicontrol></menucascade> command.</p>
+<p>If this file exists in the same folder as the FM file or book
+being processed, that INI file will be used instead of the default
+file. This allows you to maintain separate INI files for each project.</p>
+<section><title>[General]</title><dl status = "changed"><dlentry>
+<dt status = "changed">MainFlow</dt>
+<dd status = "new"><p status = "changed">Overrides the default flow-detection
+and processes the specified flow. In most cases this should not
+be specified, but if you want to process a flow that’s not recognized
+as the main flow, try setting it here.</p><p status = "changed">Default:
+(nothing)</p><p>Used by: most commands</p></dd></dlentry>
+<dlentry><dt status = "changed">AssignIdElems</dt>
+<dd status = "new"><p status = "changed">Space-delimited list of
+elements (element names) to assign IDs. If empty, IDs are assigned
+based on element definitions in the EDD where the @id attribute is
+identified as required.</p><p status = "changed">Default: (nothing)</p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_assign-ids"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_fix-xrefs" status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">TopicElems</dt>
+<dd status = "new"><p status = "changed">Space-delimited list of
+“topic” elements. Leave empty to check the EDD for element definitions
+where the @class attribute contains “topic/topic”.</p><p
+    status = "changed">Default: (nothing)</p><p>Used by: <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_assign-ids"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_fix-xrefs" status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt>AttributeDisplay</dt>
+<dd status = "new"><p>Specifies the attribute display setting applied
+by the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_set-attr-disp"></cmdname> command.</p><p>Valid
+values: None, ReqSpec, All</p><p>Default: <codeph status = "new">ReqSpec</codeph></p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_set-attr-disp"></cmdname></p></dd></dlentry>
+<dlentry><dt>IdPrefix</dt>
+<dd status = "new"><p>String prefix for auto-generated IDs.</p><p>Default: <codeph
+    status = "new">id</codeph></p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_assign-ids"></cmdname></p></dd></dlentry>
+<dlentry><dt>IdType</dt>
+<dd status = "new"><p>Specifies the type of auto-generated IDs.
+Available types are GUID (globally unique ID) or QUID (quasi-unique
+ID, shorter FM-based values).</p><p>Valid values: GUID, QUID</p><p>Default: <codeph
+    status = "new">GUID</codeph></p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_assign-ids"></cmdname></p></dd></dlentry>
+<dlentry><dt>TopicNameTpl</dt>
+<dd status = "new"><p>Template string for generated topic file names.
+Should include building blocks as well as the required file name
+extension (typically “.xml” or “.dita”). Do not specify a path.
+For building block details, see <xref href = "topicandmaptemplatebuildingblocks.xml#id131KBE070Y4"
+type = "topic" format = "dita" scope = "local"></xref>.</p><p>Default: <codeph
+    status = "new">&lt;$FM_CHAPNUM[L]>-&lt;$TITLE_NOSPACECAMELLOW>.xml</codeph></p><p
+    status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-xrefs"
+status = "changed"></cmdname>, <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_check-collisions"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-chap-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_shred-topics"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-and-chap-maps"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-single-map"></cmdname></p></dd></dlentry>
+<dlentry><dt>MapNameTpl</dt>
+<dd status = "new"><p>Template string for generated chapter map
+file names. Should include building blocks as well as the required
+file name extension (typically “.ditamap”). Do not specify a path.
+For building block details, see <xref href = "topicandmaptemplatebuildingblocks.xml#id131KBE070Y4"
+type = "topic" format = "dita" scope = "local"></xref>.</p><p>Default: <codeph
+    status = "new">&lt;$FM_CHAPNUM[L]>-&lt;$TITLE_NOSPACECAMELLOW>.ditamap</codeph></p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_write-chap-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-and-chap-maps"></cmdname></p></dd></dlentry>
+<dlentry><dt>RootMapNameTpl</dt>
+<dd status = "new"><p>Template string for generated root ditamap
+file name. Should include building blocks as well as the required
+file name extension (typically “.ditamap”). Do not specify a path.
+For building block details, see <xref href = "topicandmaptemplatebuildingblocks.xml#id131KBE070Y4"
+type = "topic" format = "dita" scope = "local"></xref>.</p><p>Default: <codeph
+    status = "new">_!&lt;$FM_FILENAME[L]>.ditamap</codeph></p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_write-root-and-chap-maps"></cmdname></p></dd></dlentry>
+<dlentry><dt>RootMapIsBookmap</dt>
+<dd status = "new"><p status = "changed">Controls the type of root
+map created. If set to “1”, a bookmap will be written for the root
+map, otherwise a “regular” map is written.</p><p status = "changed">Default: <codeph
+    status = "new">0</codeph></p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_write-root-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-and-chap-maps"></cmdname></p></dd></dlentry>
+<dlentry><dt>DeleteRelLinks</dt>
+<dd status = "new"><p>Specifies if related-links are deleted while
+writing XML topics. Valid values are 0 (don’t delete) or 1 (delete)</p><p
+    status = "changed">Default: <codeph status = "new">1</codeph></p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_shred-topics"></cmdname></p></dd></dlentry>
+<dlentry><dt>FmXrefAttr</dt>
+<dd status = "new"><p>The xref element’s attribute to which the
+FM cross-ref format is assigned (for fm-xref usage). Typical values
+are “type” or “outputclass”. If set to nothing, the format name
+is not assigned to the xref element.</p><p>Default: (nothing)</p><p
+    status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-xrefs"
+status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">FlattenXrefs</dt>
+<dd status = "new"><p status = "changed">if set to “1”, tells the
+Fix Cross-refs command to perform the “flatten cross-ref” command
+as well. This is used to revert the functionality back to the original single
+command.</p><p status = "changed">Default: <codeph status = "new">0</codeph></p><p
+    status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-xrefs"
+status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">TopicAppName</dt>
+<dd status = "new"><p>Topic application name as registered in the
+structure application definition file.</p><p>Default: <codeph
+    status = "new">FM2DITA-Topic-1.1</codeph></p><p>Used by: <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_var-to-conref"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_shred-topics"></cmdname></p></dd></dlentry>
+<dlentry><dt>DefaultCondToAttr</dt>
+<dd status = "new"><p>Filtering attribute name to use for conditions
+not mapped in the CondToAttrMap section of the INI file.</p><p>Default: <codeph
+    status = "new">product</codeph></p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_cond-to-attr"></cmdname></p></dd></dlentry>
+<dlentry><dt>CheckParentCond</dt>
+<dd status = "new"><p>Specifies whether to apply a filtering attribute
+if set on element’s parent. Valid values are 0 (don’t check parent)
+or 1 (check parent).</p><p status = "changed">Default: <codeph
+    status = "new">0</codeph></p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_cond-to-attr"></cmdname></p></dd></dlentry>
+<dlentry><dt>StopWords</dt>
+<dd status = "new"><p status = "changed">Space-delimited list of
+words to exclude from topic titles when generating file names as
+well as strings for the <codeph status = "new">$TITLE*</codeph> building
+blocks. This can also specify a file name (plain text) which contains
+the list of stop words (one word per line). The file name can be
+an absolute path, or relative (if it starts with “./” or “../”). If
+relative, it is relative to the INI file. If this parameter is commented
+out or set to no value, no stop words will be stripped.</p><p>Default:
+(nothing)</p><p status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-xrefs"
+status = "changed"></cmdname>, <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_check-collisions"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-chap-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_shred-topics"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-and-chap-maps"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-single-map"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">PunctuationChar</dt>
+<dd status = "new"><p status = "changed">Specifies the character
+used to replace punctuation when strings are returned by the <codeph
+    status = "new">$TITLE*</codeph> building blocks. If not present
+or set to an empty string (nothing), this punctuation is stripped
+from the return string.</p><p>Default: (nothing)</p><p
+    status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-xrefs"
+status = "changed"></cmdname>, <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_check-collisions"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-chap-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_shred-topics"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-map"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-root-and-chap-maps"></cmdname>, <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_write-single-map"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">ConrefLibrary</dt>
+<dd status = "new"><p>File name for conref library. Do not specify
+a path or use building blocks.</p><p>Default: <codeph status = "new">shared.xml</codeph></p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_var-to-conref"></cmdname></p></dd></dlentry>
+<dlentry><dt>TabToSpaces</dt>
+<dd status = "new"><p>Number of spaces to replace for each tab character.</p><p>Default: <codeph
+    status = "new">4</codeph></p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_tab2spaces"></cmdname></p></dd></dlentry>
+<dlentry><dt>DeleteAttrs</dt>
+<dd status = "new"><p>Space-delimited list of attributes to delete.
+If empty (default), you’ll be prompted for values.</p><p>Default:
+(nothing)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_del-attrs"></cmdname></p></dd></dlentry>
+<dlentry><dt>DeleteMarkers</dt>
+<dd status = "new"><p>Space-delimited list of unstructured markers
+to delete. If empty (default), you’ll be prompted for values.</p><p>Default:
+(nothing)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_del-markers"></cmdname></p></dd></dlentry>
+<dlentry><dt>UnwrapElems</dt>
+<dd status = "new"><p>Space-delimited list of elements to unwrap.
+If empty (default), you’ll be prompted for values. This value can
+be the element name or an element/attribute specification (like
+b/@outputclass=’unwrapme’).</p><p>Default: (nothing)</p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_unwrap-elems"></cmdname></p></dd></dlentry>
+<dlentry><dt>DeleteElems</dt>
+<dd status = "new"><p>Space-delimited list of elements to delete.
+If empty (default), you’ll be prompted for values. This value can
+be the element name or an element/attribute specification (like
+b/@outputclass=’deleteme’).</p><p>Default: (nothing)</p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_delete-elems"></cmdname></p></dd></dlentry>
+<dlentry><dt>MergeElems</dt>
+<dd status = "new"><p>Space-delimited list of elements to merge.
+If empty (default), you’ll be prompted for values.</p><p>Default:
+(nothing)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_merge-code-lines"></cmdname></p></dd></dlentry>
+<dlentry><dt>DeleteEmpty</dt>
+<dd status = "new"><p>Space-delimited list of elements to delete.
+If empty (default), you’ll be prompted for values.</p><p>Default:
+(nothing)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_del-elems"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">MoveTblOutputclass</dt>
+<dd status = "new"><p status = "changed">If set to “1”, specifies
+that the outputclass value is moved from the tgroup element to the
+parent table element.</p><p status = "changed">Default: <codeph
+    status = "new">0</codeph> (outputclass is not moved)</p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-tables"></cmdname></p></dd></dlentry>
+<dlentry><dt>SaveTableWidth</dt>
+<dd status = "new"><p status = "changed">If set to “1”, saves the
+relative table width (as a percentage) to the parent table element’s
+pgwide attribute. The percentage is rounded to the nearest higher
+5.</p><p>Default: <codeph status = "new">0</codeph> (don’t save
+table width)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-tables"></cmdname></p></dd></dlentry>
+<dlentry><dt>SaveTableShading</dt>
+<dd status = "new"><p status = "changed">If set to “1”, adds a value
+to the cell element’s outputclass attribute based on the shading
+applied to the cell. This value includes the color name and the
+fill pattern number (a value from 0-15). For example, if the color
+is blue and the fill is a dotted pattern, the value may be “fill-blue-4”.</p><p>Default: <codeph
+    status = "new">0</codeph> (don’t save table shading)</p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-tables"></cmdname></p></dd></dlentry>
+<dlentry><dt>TableFmtPrefixChopChar</dt>
+<dd status = "new"><p>Specifies the character to use to determine
+the prefix to remove from table formats applied to each table. For
+example, if your table format is “con-FormatA”, but you want it
+to be just “FormatA”, specify the “-” character in this parameter.</p><p>Default:
+(nothing)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-tables"></cmdname></p></dd></dlentry>
+<dlentry><dt>UnwrapTables</dt>
+<dd status = "new"><p>A space-delimited list of table formats to
+unwrap (convert to text). If empty (default), you’ll be prompted
+for values.</p><p>Default: (nothing)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_tables-to-text"></cmdname></p></dd></dlentry>
+<dlentry><dt>UnwrapTablesPrefix</dt>
+<dd status = "new"><p>A space-delimited list of prefixes to apply
+to the paragraphs that result from the unwrapping of tables.</p><p>Alternatively,
+a complex mapping option is available that allows column-based and/or
+tag based assignment of the new tag names. See <xref href = "tablestotext.xml#id13AQHA0M0PF/complexmapping"
+type = "section" format = "dita" scope = "local"></xref> for details.</p><p>Default:
+(nothing)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_tables-to-text"></cmdname></p></dd></dlentry>
+<dlentry><dt>IncludeMetadataInMaps</dt>
+<dd status = "new"><p status = "changed">If set to “1”, includes
+topicmeta/critdates/created/@date=’<i status = "new">YYYY-MM-DD</i>’
+in generated maps, otherwise no metadata is included.</p><p
+    status = "changed">Default: <codeph status = "new">1</codeph> (include
+metadata)</p><p status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_rellinks"
+status = "changed"></cmdname>, <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_write-root-map"
+status = "changed"></cmdname>, <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_write-root-and-chap-maps"
+status = "changed"></cmdname>, <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_write-single-map"
+status = "changed"></cmdname>, <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_write-chap-map"
+status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">FmDpiVal</dt>
+<dd status = "new"><p status = "changed">If set to a value greater
+than “0” sets @outputclass='fmdpi:<i status = "new">VAL</i>' when processing
+images, otherwise sets the @height and @width values based on the actual
+image size.</p><p status = "changed">Default: <codeph status = "new">0</codeph></p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-images"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[TopicHeadings]</title><dl><dlentry><dt>Delim</dt>
+<dd status = "new"><p>Delimiter character used in H&lt;n> lists.</p><p>Default:
+(space)</p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_topic-report"></cmdname></p></dd></dlentry>
+<dlentry><dt>H0, H1, H2, H3, H4</dt>
+<dd status = "new"><p>“Delim”-delimited lists of paragraph tags
+used as topic headings in the unstructured FM files. The H0 parameter
+is the “chapter title”, and H1, H2, H3, H4 parameters are the headings
+within that chapter. Assign the heading styles to these parameters
+for each that is to become a topic. Note that this setup is not used
+to actually perform the writing of XML topics, only for the <cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_topic-report"></cmdname> heading
+count and analysis.</p><p>Default: (none)</p><p>Used by:<cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_topic-report"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[AltTableTypes]</title><dl><dlentry><dt>Count</dt>
+<dd status = "new"><p>Specifies the number of alternate table type
+entries defined in this section.</p><p>Valid values: Integer value</p><p>Default:
+3 (uses internal definitions for simpletable, choicetable, and properties tables
+if this parameter is not defined)</p><p>Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-tables"></cmdname></p></dd></dlentry>
+<dlentry><dt>&lt;N></dt>
+<dd status = "new"><p>Each sequential numeric entry (starting with
+“1”) defines the structure of a table that will replace the default
+structure (thead, tbody, row, entry). This entry defines the table
+type, followed by the “>” character followed by a space-delimited
+table structure definition. The format for this entry is as follows:</p><p><varname>tableType</varname> > <varname>theadReplacement</varname> <varname>theadRow</varname> <varname>theadCell(s)</varname> <varname>tbodyReplacement</varname> <varname>tbodyRow</varname> <varname>tbodyCell(s)</varname></p><p>Where</p><ul>
+<li><varname>tableType</varname> is the name of the alternate table
+(like “simpletable”). This is followed by the “>” character which
+separates it from the table structure definition.</li>
+<li><varname>theadReplacement</varname> is the name of the table
+head container (like “fm-simpletablehead”)</li>
+<li><varname>theadRow</varname> is the name of the row element(s)
+in the table head (like “sthead”)</li>
+<li><varname>theadCell(s)</varname> is the name of the cell element(s)
+in the table head (like “stentry”). This can specify a group of
+sequential cell elements, by using the following syntax: (cell1Elem,cell2Elem,...).
+No spaces are allowed in this group syntax.</li>
+<li><varname>tbodyReplacement</varname> is the name of the table
+body container (like “fm-simpletablebody”)</li>
+<li><varname>tbodyRow</varname> is the name of the row element(s)
+in the table body (like “strow”)</li>
+<li><varname>tbodyCell(s)</varname> is the name of the cell element(s)
+in the table body (like “stentry”). This can specify a group of
+sequential cell elements, by using the following syntax: (cell1Elem,cell2Elem,...).
+No spaces are allowed in this group syntax.</li></ul><p
+    status = "changed">Default: (none, unless Count is not specified)</p><p>Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-tables"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[MoveMarkers]</title><dl><dlentry>
+<dt status = "changed">NumMarkerTypes</dt>
+<dd status = "new"><p status = "changed">Number of marker types
+being moved. If more than 1, each marker-move specification is defined
+in a new INI section named MoveMarkers-<i status = "new">N</i>.
+This parameter is not recognized in MoveMarker-<i status = "new">N</i> sections.</p><p
+    status = "changed">Default: <codeph status = "new">1</codeph></p><p
+    status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_move-markers"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">MarkerType</dt>
+<dd status = "new"><p>Name of marker type to move.</p><p>Default: <codeph
+    status = "new">Index</codeph></p><p status = "changed">Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_move-markers"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">PrologElemPath</dt>
+<dd status = "new"><p status = "changed">XPath-like specification
+of the placement of the marker (or content) if moved to the prolog.
+Specifies the path within the prolog element. If the last node specifies
+an element name and that element is the same as the element being moved,
+it will be moved to that location. If the element name differs from
+that being moved, then the text of the marker is copied to the specified
+element name.</p><p status = "changed">If the last node is an attribute
+(as in “resource/@id”), the text of the marker is copied into that
+attribute value. To add a static attribute value, append a vertical bar
+followed by @<varname>attr</varname>=<varname>value</varname> (as
+in “|@name=TopicAlias”).</p><p status = "changed">Default: <codeph
+    status = "new">metadata/keywords/fm-indexterm</codeph></p><p
+    status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_move-markers"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">ParaTags</dt>
+<dd status = "new"><p>Space-delimited list of paragraph elements
+that are allowed to contains these markers.</p><p>Default: <codeph
+    status = "new">p li entry</codeph></p><p status = "changed">Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_move-markers"></cmdname></p></dd></dlentry>
+<dlentry><dt>MoveTopicTitleMarkersTo</dt>
+<dd status = "new"><p>Specifies the destination for markers found
+in topic titles. If “Prolog,” markers are moved into the current
+topic’s prolog (created if it doesn’t exist). If “FirstPara,” markers
+are moved to the first paragraph (matching a “ParaTags” entry) that
+follows the title. Note that this setting only applies to topic
+titles; other titles use the setting from the MoveParaMarkersTo
+parameter with the exception of BeginPara or EndPara using the next
+“ParaTags” element.</p><p>Valid values: Prolog, FirstPara</p><p>Default: <codeph
+    status = "new">Prolog</codeph></p><p status = "changed">Used
+by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_move-markers"></cmdname></p></dd></dlentry>
+<dlentry><dt>MoveParaMarkersTo</dt>
+<dd status = "new"><p>Specifies the destination for markers found
+in paragraphs (basically, anywhere other than a title). If “Prolog,”
+markers are moved into the current topic’s prolog (created if it
+doesn’t exist). If “BeginPara,” markers are moved to the beginning of
+the current paragraph, or if “EndPara,” markers are moved to the
+end of the current paragraph.</p><p>Valid values: Prolog, BeginPara,
+EndPara</p><p>Default: <codeph status = "new">BeginPara</codeph></p><p
+    status = "changed">Used by: <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_move-markers"></cmdname></p></dd></dlentry></dl></section>
+<section status = "changed"><title>[MoveMarkers-<i status = "new">N</i>]</title><p
+    status = "new">Sections that contain parameters matching those
+in the MoveMarkers section (described above). if the MoveMarkers/NumMarkerTypes
+parameter is greater than 1, there should be one MoveMarker-<i
+    status = "new">N</i> section for each marker type being moved (starting
+with MoveMarkers-1 up to the value specified in the NumMarkerTypes parameter).</p></section>
+<section><title>[CondToCharTag]</title><dl><dlentry><dt>&lt;condname></dt>
+<dd status = "new"><p status = "changed">Specifies the character
+tag to which the condition (&lt;condname>) is assigned. Entering
+pairs of &lt;condname>=&lt;chartag> entries in this section defines
+the mapping that is performed by the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_cond-to-char-tag"
+status = "changed"></cmdname> command.</p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_cond-to-char-tag"
+status = "changed"></cmdname></p></dd></dlentry></dl></section>
+<section status = "changed"><title>[RenameCondMap]</title><dl><dlentry>
+<dt>&lt;oldname></dt>
+<dd status = "new"><p status = "changed">Specifies the new condition
+name. Entering pairs of &lt;oldname>=&lt;newname> entries in this
+section defines the mapping that is performed by the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_ren-conds"></cmdname> command.
+If no mapping is defined in this section, the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_ren-conds"></cmdname> command
+does nothing.</p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_ren-conds"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[CondToAttrMap]</title><dl><dlentry><dt>&lt;condname></dt>
+<dd status = "new"><p status = "changed">Specifies the filtering
+attribute to which the condition (&lt;condname>) is assigned. Entering
+pairs of &lt;condname>=&lt;attrname> entries in this section defines
+the mapping that is performed by the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_cond-to-attr"></cmdname> command. If
+no mapping is defined in this section, the conditions are assigned
+to the attribute specified in the General/DefaultCondToAttr parameter.</p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_cond-to-attr"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[ImagePathMap]</title><dl><dlentry><dt>&lt;origpath></dt>
+<dd status = "new"><p status = "changed">Specifies the new path
+to which the original path (&lt;origpath>) is mapped. Entering pairs
+of &lt;origpath>=&lt;newpath> entries in this section defines the mapping
+that is performed by the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-images"></cmdname> command.
+If no mapping is defined, the images remain referenced at the original
+location. The paths specified in this section must be the full path
+to the image file name; partial paths are not mapped. Each of the
+values for &lt;origpath> and &lt;newpath> must not be greater than
+120 characters.</p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_fix-images"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[TagCleanup]</title><dl><dlentry><dt>UseTagsFromFile</dt>
+<dd status = "new"><p>Specifies where to get the list of character
+tags. If set to “1” the tags are read from the current file, if
+set to “0” the list of tags is read from the TagCleanup section
+(see Count and &lt;N> below).</p><p>Valid values: Integer value
+(0 or 1)</p><p status = "changed">Default: <codeph status = "new">1</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_tag-cleanup"></cmdname></p></dd></dlentry>
+<dlentry><dt>NewCharColor</dt>
+<dd status = "new"><p>Specifies the color applied to newly created
+character tags.</p><p>Valid values: String value of a valid color
+name</p><p status = "changed">Default: <codeph status = "new">Red</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_tag-cleanup"></cmdname></p></dd></dlentry>
+<dlentry><dt>Count</dt>
+<dd status = "new"><p>Specifies the number of character tag entries
+in this section.</p><p>Valid values: Integer value</p><p
+    status = "changed">Default: <codeph status = "new">0</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_tag-cleanup"></cmdname></p></dd></dlentry>
+<dlentry><dt>&lt;N></dt>
+<dd status = "new"><p>Character tag entries. One entry per tag,
+using sequential numeric key values starting with “1”.</p><p
+    status = "changed">Default: (none)</p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_tag-cleanup"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[RetagParas-<i>N</i>]</title><dl><dlentry><dt>NumPasses</dt>
+<dd status = "new"><p>Specifies the number of iterations or passes
+performed by the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-paras"></cmdname> command.
+For values greater than 1, a new RetagParas-<i>N</i> section must
+be added.“NumPasses” is only valid in the initial RetagParas section.</p><p>Valid
+values: Integer value of 1 or more</p><p status = "changed">Default: <codeph
+    status = "new">1</codeph></p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-paras"></cmdname></p></dd></dlentry>
+<dlentry><dt>Delim</dt>
+<dd status = "new"><p>Specifies the character that separates the
+tag and prefix. The only reason to change this from the default
+is if your paragraph tags contain the “>” character This value should
+be a character that does not occur in your paragraph tag names.
+“Delim” is only valid in the initial RetagParas section.</p><p>Valid
+values: Any single character</p><p status = "changed">Default: <codeph
+    status = "new">></codeph></p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-paras"></cmdname></p></dd></dlentry>
+<dlentry><dt>Count</dt>
+<dd status = "new"><p>Specifies the number of tag/prefix entries
+in this section. If you are using multiple passes (NumPasses > 1),
+you must provide the Count parameter in each section.</p><p>Valid
+values: Integer value</p><p status = "changed">Default: <codeph
+    status = "new">0</codeph></p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-paras"></cmdname></p></dd></dlentry>
+<dlentry><dt>&lt;N></dt>
+<dd status = "new"><p>Tag/prefix entries.</p><p>Valid values: Tag
+and optional prefix name separated by the Delim character. One item
+per tag/prefix entry, using sequential numeric key values starting
+with “1”.</p><p status = "changed">Default: (none)</p><p>Used by:<cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_retag-paras"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[RetagTablesInParas]</title><dl><dlentry><dt>AddPostion</dt>
+<dd status = "new"><p>Specifies that the TblFmtStr values are added
+as a prefix or suffix to the current table format name.</p><p>Valid
+values: “Prefix” or “Suffix”</p><p status = "changed">Default: <codeph
+    status = "new">Prefix</codeph></p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-tables-para"></cmdname></p></dd></dlentry>
+<dlentry><dt>Delim</dt>
+<dd status = "new"><p>Specifies the delimiter character used in
+the TagList-&lt;N> entries.</p><p>Valid values: Any single character</p><p
+    status = "changed">Default: (space)</p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-tables-para"></cmdname></p></dd></dlentry>
+<dlentry><dt>Count</dt>
+<dd status = "new"><p>Specifies the number of TagList-&lt;N> and
+TagFmtStr-&lt;N> pairs.</p><p>Valid values: Integer value</p><p
+    status = "changed">Default: <codeph status = "new">0</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-tables-para"></cmdname></p></dd></dlentry>
+<dlentry><dt>TagList-&lt;N></dt>
+<dd status = "new"><p>List of paragraph tags separated with the
+“Delim” character. One entry per table prefix/suffix.</p><p>Valid
+values: Paragraph tag names.</p><p status = "changed">Default: (none)</p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-tables-para"></cmdname></p></dd></dlentry>
+<dlentry><dt>TagFmtStr-&lt;N></dt>
+<dd status = "new"><p>Prefix/suffix string added to the current
+table format name.</p><p>Valid values: String value.</p><p
+    status = "changed">Default: (none)</p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_retag-tables-para"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[BuildMenucascades]</title><dl><dlentry><dt>SourceType</dt>
+<dd status = "new"><p>Specifies the construction of elements to
+process. If you are matching on a single element that contains multiple
+“menu items” separated with a delimiter, the SourceType is “0”.
+If you are matching on multiple elements separated with a delimiter,
+the SourceType is “1”.</p><p>Valid values: Integer value (0 or 1)</p><p
+    status = "changed">Default: <codeph status = "new">0</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_build-menucascades"></cmdname></p></dd></dlentry>
+<dlentry><dt>MatchSpec</dt>
+<dd status = "new"><p>Specifies the element to match for performing
+this operation. You can specify and element name or an element and
+attribute (b/@outputclass=’uicontrol’).</p><p>Valid values: String
+value</p><p status = "changed">Default: <codeph status = "new">uicontrol</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_build-menucascades"></cmdname></p></dd></dlentry>
+<dlentry><dt>Delim</dt>
+<dd status = "new"><p>Specifies the menu delimiter to split on (typically
+a “>”).</p><p>Valid values: String value</p><p status = "changed">Default: <codeph
+    status = "new">></codeph></p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_build-menucascades"></cmdname></p></dd></dlentry>
+<dlentry><dt>WrapperElem</dt>
+<dd status = "new"><p>Specifies the element name to be the wrapper
+for the menucascade.</p><p>Valid values: String value</p><p
+    status = "changed">Default: <codeph status = "new">menucascade</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_build-menucascades"></cmdname></p></dd></dlentry>
+<dlentry><dt>InnerElem</dt>
+<dd status = "new"><p>Specifies the element name within the menucascade.</p><p>Valid
+values: String value</p><p status = "changed">Default: <codeph
+    status = "new">uicontrol</codeph></p><p>Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_build-menucascades"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[Hypertext]</title><dl status = "changed"><dlentry><dt>GotolinkHref</dt>
+<dd status = "new"><p status = "changed">Defines the syntax of the
+resulting @href attribute. Can be used with building blocks.</p><p
+    status = "changed">Valid values: String value</p><p
+    status = "changed">Default: <codeph status = "new">http://gotolinkurl?marker=&lt;$URI-MARKERTEXT>&amp;link=&lt;$URI-LINKTEXT></codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_hypertext" status
+= "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt>NewlinkToData</dt>
+<dd status = "new"><p status = "changed">If set to “1”, specifies
+that a “NEWLINK” marker should convert into fm-data-marker elements.</p><p
+    status = "changed">Valid values: Integer value</p><p
+    status = "changed">Default: <codeph status = "new">0</codeph></p><p
+    status = "changed">Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_hypertext"
+status = "changed"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[RellinksToReltable]</title><dl status = "changed">
+<dlentry><dt status = "changed">ElemName</dt>
+<dd status = "new"><p status = "changed">Processes all cross-ref
+objects in the specified element.</p><p status = "changed">Valid
+values: String value</p><p status = "changed">Default: <codeph
+    status = "new">related-links</codeph></p><p>Used by:<cmdname
+conref="_shared.xml#id131KC0I0VHS/cmd_rellinks" status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">DeleteElem</dt>
+<dd status = "new"><p status = "changed">If set to “1”, deletes
+the element specified by the ElemName parameter after processing.</p><p
+    status = "changed">Valid values: Integer value</p><p
+    status = "changed">Default: <codeph status = "new">0</codeph></p><p
+    status = "changed">Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_rellinks"
+status = "changed"></cmdname></p></dd></dlentry></dl></section>
+<section><title>[AFrameToRaster]</title><dl status = "changed">
+<dlentry><dt status = "changed">ImageType</dt>
+<dd status = "new"><p status = "changed">Specifies the type of image
+to be created from the anchored frame.</p><p status = "changed">Valid
+values: JPG, PNG, GIF, TIF, or a valid export filter hint string</p><p
+    status = "changed">Default: <codeph status = "new">JPG</codeph></p><p>Used
+by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_aframe-to-raster"
+status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">ImageFilenameTemplate</dt>
+<dd status = "new"><p status = "changed">Defines the “template”
+for the generated graphic file names. New building blocks are available
+for this template: &lt;$IMG-DOCNAME> (the document name), &lt;$IMG-IMGNAME>
+(the first image file name in anchored frame [may be null]), and
+&lt;$IMG-COUNT> (the nth aframe processed).</p><p status = "changed">Valid
+values: String</p><p status = "changed">Default: <codeph status = "new">image_&lt;$IMG-COUNT>.jpg</codeph></p><p
+    status = "changed">Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_aframe-to-raster"
+status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">ImagePath</dt>
+<dd status = "new"><p status = "changed">Specifies the relative
+path where the generated graphics are written.</p><p status = "changed">Valid
+values: String</p><p status = "changed">Default: <codeph status = "new">graphics</codeph></p><p
+    status = "changed">Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_aframe-to-raster"
+status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">ImageDpi</dt>
+<dd status = "new"><p status = "changed">Specifies the DPI for the
+generated graphics.</p><p status = "changed">Valid values: Integer</p><p
+    status = "changed">Default: <codeph status = "new">150</codeph></p><p
+    status = "changed">Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_aframe-to-raster"
+status = "changed"></cmdname></p></dd></dlentry>
+<dlentry><dt status = "changed">ConvertTypes</dt>
+<dd status = "new"><p status = "changed">A space-delimited list
+of graphic file types (file extensions). Matching file types found
+while processing are converted to the new type, even if there is
+just one object in the anchored frame.</p><p status = "changed">Valid
+values: String</p><p status = "changed">Default: (none)</p><p
+    status = "changed">Used by:<cmdname conref="_shared.xml#id131KC0I0VHS/cmd_aframe-to-raster"
+status = "changed"></cmdname></p></dd></dlentry></dl></section></body></topic>

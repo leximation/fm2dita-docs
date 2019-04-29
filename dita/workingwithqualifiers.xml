@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id1382B00J0HS"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Working with Qualifiers</title>
+<shortdesc>For all but the simplest of conversions, you’ll need
+to use qualifiers to properly identify and wrap like named elements
+used in different structures.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-08-02"/>
+<revised modified = "2013-08-04"/></critdates></prolog>
+<body><p><indexterm>conversion table<indexterm>qualifiers</indexterm></indexterm>Qualifiers
+are labels that are assigned to a mapping or wrapping rule to allow
+you to distinguish the resulting element from other like-named elements
+in later wrapping rules. Qualifiers can also be used to assign labels
+to multiple different types of elements so you can refer to groups
+of elements without naming each type in later wrapping rules. If
+used, a qualifier label is included in the third column of a mapping
+or wrapping rule.</p>
+<p>There are no fixed rules about how to naming conventions for
+qualifiers. As you develop conversion tables, you’ll likely come
+up with your own naming conventions that make sense to you and work
+best for your content. We’ll describe one method here, but the best method
+is the one that “works.”</p>
+<p>The best way to understand how qualifiers work is to review a
+working conversion table. The FM2DITA sample files include a conversion
+table that has been fully annotated (in the fourth column). We recommend
+that you read through that file.</p>
+<p>...</p></body></topic>

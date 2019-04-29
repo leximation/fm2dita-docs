@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id1372F070P5Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Untag Boundary Spaces</title>
+<shortdesc>Ensures that leading and trailing spaces are unformatted.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-07-02"/>
+<revised modified = "2013-08-04"/></critdates></prolog>
+<body><p><indexterm>spaces, missing</indexterm><indexterm>missing
+spaces</indexterm>When character tags are mapped to elements, if
+the character range contains a leading or trailing space the resulting
+element will have a leading or trailing space. Because of XML whitespace
+normalization rules, any leading or trailing whitespace in an element
+may be deleted when saved to XML.</p>
+<p>If, after running a full conversion to XML, and you see missing
+space to one side or the other of inline tagging, this is likely
+the problem.</p>
+<p>This command scans for these “boundary” conditions (locations
+where inline tagging changes from one tag to another, or changes
+to no tag). Any space that exists to one side or the other of this
+boundary location is “untagged” (assigned “Default Para Font”).</p>
+<p>This command must be run before applying the conversion table.</p></body></topic>

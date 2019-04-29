@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="GotolinkHref"?><?dtall dict="gotolink"?><?dtall dict="MoveMarkers"?><?dtall
+dict="NumMarkerTypes"?><?dtall dict="newlink"?><?dtall dict="PrologElemPath"?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-StatusNew AsIs CHANGEBAR show?>
+<?Fm Condition DITA-StatusChanged AsIs CHANGEBAR show?>
+<?Fm Condition DITA-StatusUnchanged AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+<?Fm Condition DITA-StatusDeleted AsIs STRIKETHROUGH show?>
+
+<?Fm BoolCondExpr "DITA-Data"OR"DITA-Cleanup"OR"DITA-Comment"OR"DITA-Prolog"OR"DITA-StatusNew"OR"DITA-StatusChanged"OR"DITA-StatusUnchanged"OR"DITA-StatusDeleted" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id3fbcd5cc-9d81-4653-9474-2953674acf22"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>1.03 - 30 April 2016</title>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<author>scottp</author>
+<critdates><created date = "2015-03-19"/>
+<revised modified = "2016-04-29"/></critdates></prolog>
+<body status = "changed"><section status = "changed"><title>New
+Features</title><dl status = "changed"><dlentry><dt status = "changed">New
+preconversion tools</dt>
+<dd status = "changed"><ul status = "changed"><li><p><uicontrol>Book
+to Doc</uicontrol> - Creates a single FM file from all files in
+a book.</p></li>
+<li><p><uicontrol>Struct Cross-refs to Marker Cross-refs</uicontrol> -
+Relinks structure-based cross-references to marker-based cross-references.</p></li>
+<li><p><uicontrol>Fix Cross-ref Formats</uicontrol> - Strips leading/trailing
+spaces from Cross-ref formats.</p></li>
+<li><p><uicontrol>AFrame to Raster</uicontrol> - Generates raster
+images from anchored frames that contain multiple graphic objects.</p></li>
+<li><p><uicontrol>List Import/Export Filters</uicontrol> - Generates
+a list of all import and export filters currently available in FrameMaker.</p></li></ul></dd></dlentry>
+<dlentry><dt status = "changed">Updated preconversion tools</dt>
+<dd status = "changed"><ul><li><p status = "changed"><uicontrol>Retag
+Paras</uicontrol> - Allows the use of multiple retag para groups.</p></li></ul></dd></dlentry>
+<dlentry><dt status = "changed">Removed preconversion tools</dt>
+<dd status = "changed"><p status = "changed">Replaced the Extract
+Art comand with AFrame to Raster.</p></dd></dlentry>
+<dlentry><dt status = "changed">fm2dita.ini file location changes</dt>
+<dd status = "changed"><p status = "new">The <filepath>fm2dita.ini</filepath> file
+is now located by checking the current directory (the directory
+with the file or book being processed), then each parent directory.
+If it is not found the “default” <filepath>fm2dita.ini</filepath> file
+is used (the one in the <filepath status = "new">Pubs-Tools</filepath> folder). This
+change allows you to maintain just one instance of an <filepath>fm2dita.ini</filepath> file
+for each project rather than needing to copy it to multiple folders.</p></dd></dlentry>
+<dlentry><dt status = "changed">New or changed fm2dita.ini parameters</dt>
+<dd status = "changed"><ul status = "new"><li status = "new">General/AssignIdElems
+- new</li>
+<li status = "new">General/TopicElems - changed default value to
+“” (nothing), now checks for @class contains ”topic/topic”.</li>
+<li status = "new">General/StopWords - added support for stopwords
+file</li>
+<li status = "new">General/FmDpiVal - new</li>
+<li status = "new">Added new AFrameToRaster section with the following
+parameters: ImageType, ImageFilenameTemplate, ImagePath, ImageDpi,
+and ConvertTypes.</li></ul></dd></dlentry>
+<dlentry status = "changed"><dt status = "changed">Modified handling
+of lists in fm2dita.ini parameters</dt>
+<dd status = "changed"><p status = "new">For “space-delimited” lists
+in <filepath>fm2dita.ini</filepath> parameters, if you need to use
+an alternate delimiter (other than the space character), use this
+new syntax:</p><p status = "new">[&lt;char>]&lt;char-delimited string></p><p
+    status = "new">Where &lt;char> is the new delimiter enclosed
+in square brackets. For example, to use a comma as the delimiter,
+use the following:</p><p status = "new">[,]first item,second item,third
+item</p></dd></dlentry>
+<dlentry><dt status = "changed">New building blocks and modifiers</dt>
+<dd status = "changed"><ul status = "new"><li status = "new">&lt;$IMG-DOCNAME>
+the document name (for AFrame to Raster command)</li>
+<li status = "new">&lt;$IMG-IMGNAME> the first image file name in
+anchored frame [may be null] (for AFrame to Raster command)</li>
+<li status = "new">&lt;$IMG-COUNT> the nth aframe processed (for
+AFrame to Raster command)</li>
+<li status = "new">&lt;$VAR(<i status = "new">varname</i>)> value
+of the <i status = "new">varname</i> variable (for Map Hypertext Markers
+command or elsewhere)</li>
+<li status = "new">&lt;$MARKERTEXT> value of the current marker’s
+marker text (for Map Hypertext Markers command)</li>
+<li status = "new">&lt;$LINKTEXT> value of the current marker’s
+link text (for Map Hypertext Markers command)</li>
+<li status = "new">Added “split” building block modifier. [&lt;index>&lt;splitchar>S]
+where &lt;index> is 1-based, &lt;splitchar> is a single character.</li></ul></dd></dlentry>
+<dlentry status = "changed"><dt status = "changed">Retag Paras command
+updates</dt>
+<dd status = "changed"><p status = "new">The Retag Paras command
+can now make use of multiple groups of rules for retagging paragraphs.
+This lets you define collections of rules that might be run for
+different situations or different types of content. Details are
+available in the <xref href = "retagparas.xml#id136OF2009Y4" type
+= "topic" format = "dita" scope = "local" status = "new"></xref> topic.</p></dd></dlentry>
+<dlentry status = "changed"><dt status = "changed">Map Fix Images
+command updates</dt>
+<dd status = "changed"><p status = "new">Added support for “fmdpi”
+in Fix Images command. If new INI parameter General/FmDpiVal is
+set, it assigns @outputclass='fmdpi:VAL', otherwise sets values
+for @height and @width attributes.</p></dd></dlentry>
+<dlentry status = "changed"><dt status = "changed">Map Hypertext
+Markers command updates</dt>
+<dd status = "changed"><p status = "new">Added support for <codeph
+    status = "new">gotolink filename:newlink</codeph> Hypertext
+markers. This assumes that all files are open at run time. It is
+possible to match on incorrect/duplicate file names, so use with
+care.</p></dd></dlentry>
+<dlentry status = "changed"><dt status = "changed">New API commands</dt>
+<dd status = "changed"><ul status = "new"><li><p status = "new">RELLINKS-TO-RELTABLE</p></li>
+<li status = "new"><p status = "new">FLATTEN-CROSS-REFS</p></li>
+<li status = "new"><p status = "new">BOOK-TO-DOC</p></li>
+<li status = "new"><p status = "new">STRUCT-MARKER-CROSSREFS</p></li>
+<li status = "new"><p status = "new">FIX-CROSSREF-FMTS</p></li></ul></dd></dlentry>
+<dlentry status = "changed"><dt status = "changed">Updated API commands</dt>
+<dd status = "changed"><ul status = "new"><li><p status = "new">RETAG-PARAS
+- added optional &lt;groupName> parameter.</p></li></ul></dd></dlentry></dl></section>
+<section><title>Sample File and Structure Application Updates</title><dl
+    status = "changed"><dlentry><dt status = "changed">Sample file
+changes</dt>
+<dd status = "changed"><p status = "new">The conversion table and
+FM files have been updated to support conversion of related links
+to reltable entries.</p></dd></dlentry></dl></section>
+<section><title>Bug Fixes / Minor Updates</title><dl status = "changed">
+<dlentry><dt status = "changed">Fixed problems with stop words</dt>
+<dd status = "new"><p status = "changed">Stop word processing should
+be working properly now.</p><p status = "new">If the result of processing
+leaves an empty string, now sets the string to the first “word.”</p></dd></dlentry>
+<dlentry><dt status = "changed">Fixed “splitchar” operator for $URI
+building blocks</dt>
+<dd status = "changed"><p status = "new">Now URI-encodes after the
+split is performed.</p></dd></dlentry>
+<dlentry><dt status = "changed">Report and log updates</dt>
+<dd status = "new"><p status = "changed">Catalog Report command
+on FM12 and later, could go into infinite loop. This has been fixed.</p><p
+    status = "new">Report and log files now display in a more user-friendly
+manner on FM12 and later.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Table to Text fixes</dt>
+<dd status = "new"><p status = "new">Fixed Table to Text command
+so it doesn’t fail when multiple tables are anchored to the same
+paragraph. Also no longer deletes content in paragraphs that anchor
+tables that are deleted.</p><p status = "new">Properly converts
+table titles.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Fix Images fixes</dt>
+<dd status = "new"><p status = "new">Fixed Fix Images command so
+it moves &lt;image> elements from &lt;title> elements to the next
+sibling of the &lt;title>.</p><p status = "new">If fig/@Id is empty,
+check the parent of fig for an @Id, if found, move it to fig/@Id.</p><p
+    status = "new">No longer creates an empty @align attribute.</p><p
+    status = "new">Book processing of images has been updated to
+“fix” all images.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Map Hypertext Markers</dt>
+<dd status = "new"><p status = "new">Works more consistently now.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Related Links to Reltables</dt>
+<dd status = "new"><p status = "new">Now scans all descendant elements
+of “elemname” (related-links).</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Retag Paras fixes</dt>
+<dd status = "new"><p status = "new">Added support for “groups.”</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Merge Code Lines fixes</dt>
+<dd status = "new"><p status = "new">Now handles code lines that
+start with an inline element.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Delete Empty Elems fixes</dt>
+<dd status = "new"><p status = "new">Now deletes empty elements
+in tables.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Write XML Topics fixes</dt>
+<dd status = "new"><p status = "new">Updated support for shredding
+of glossentry topics, and any “non-title” topics.</p></dd></dlentry></dl></section></body></topic>

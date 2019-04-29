@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="CallClient"?><?dtall dict="Menucascades"?><?dtall dict="Untag"?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id13AR90X0J5Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Programmatic Control of FM2DITA</title>
+<shortdesc>FM2DITA provides scripting and API access to many of
+the commands.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-10-27"/>
+<revised modified = "2016-03-05"/></critdates></prolog>
+<body><p>In order to facilitate custom automation of your conversion
+process, the FM2DITA commands intended for non-interactive operation
+can be used with the CallClient function. These commands are assigned
+a special “API code” that runs that command using the current default
+settings (as defined in the <filepath>fm2dita.ini</filepath> file).
+The CallClient function is available in the FrameMaker FDK “C” programming
+interface as well as FrameMaker ExtendScript (release 10 and later),
+and FML FrameScript.</p>
+<p>All CallClient calls use the same arguments. First is the client
+name, typically “Pubs-Tools:FM2DITA”, but it may be something else
+if you have modified the entry in the APIClients section of the <filepath>maker.ini</filepath> file.
+The client name argument must match the associated parameter name
+in the <filepath>maker.ini</filepath> file. The second argument
+is the API code for the command. At this time you cannot pass any
+other arguments to the commands.</p>
+<p>When calling an API code, the operation will be applied to the
+document or book that currently has the focus. Any errors or information
+will be written to the FrameMaker console.</p>
+<p>The following example is the FDK code to call the <uicontrol>Show
+All Conditions</uicontrol> command:</p>
+<codeblock>F_ApiCallClient("Pubs-Tools:FM2DITA", "SHOWALL-CONDS")</codeblock>
+<p>The following example is the same call using ExtendScript:</p>
+<codeblock>CallClient("Pubs-Tools:FM2DITA", "SHOWALL-CONDS");</codeblock>
+<p>The following list maps the API codes to the associated commands:</p>
+<ul><li><codeph>SHOWALL-CONDS</codeph> - Show All Conditions</li>
+<li><codeph>BOOK-TO-DOC</codeph> - Book to Doc</li>
+<li><codeph>STRUCT-MARKER-CROSSREFS</codeph> - Struct Cross-refs
+to Marker Cross-refs</li>
+<li><codeph>RENAMEALL-CONDS</codeph> - Rename Conditions</li>
+<li><codeph>FIX-CROSSREF-FMTS</codeph> - Fix Cross-ref Formats</li>
+<li><codeph>TABLE-TO-TEXT</codeph> - Table to Text</li>
+<li><p><codeph>RETAG-PARAS [&lt;groupName>]</codeph> - Retag Paras.
+Accepts optional &lt;groupName> parameter if multiple groups are
+defined in INI file. Separate the command name from the parameter
+with a verical bar (“|”) or “\t” character sequence. For example,
+use the following syntax to run the group “firstpass” using ExtendScript:</p><codeblock>CallClient("Pubs-Tools:FM2DITA", "RETAG-PARAS|firstpass");</codeblock></li>
+<li><codeph>RETAG-TABLES-PARAS</codeph> - Retag Tables in Paras</li>
+<li><codeph>UNTAG-SPACES</codeph> - Untag Boundary Spaces</li>
+<li><codeph>DELETE-EXTRA-CROSSREFS</codeph> - Delete Extra Cross-ref
+Markers</li>
+<li><codeph>FLATTEN-CROSSREF-FORMATS</codeph> - Flatten Cross-ref
+Formats</li>
+<li><codeph>AFRAMETORASTER</codeph> - AFrame to Raster</li>
+<li><codeph>COND-TO-CHAR</codeph> - Condition to Char Tag</li>
+<li><codeph>IMPORT-TPL-EDD</codeph> - Import Template and EDD</li>
+<li><codeph>ASSIGN-IDS</codeph> - Assign IDs to Topics</li>
+<li><codeph>UNWRAP-ELEMS</codeph> - Unwrap Elements</li>
+<li><codeph>DELETE-ELEMS</codeph> - Delete Elements</li>
+<li><codeph>COND-TO-ATTR</codeph> - Condition to Attribute</li>
+<li><codeph>FIX-IMAGES</codeph> - Fix Images</li>
+<li><codeph>FIX-TABLES</codeph> - Fix Tables</li>
+<li><codeph>FIX-XREFS</codeph> - Fix/Flatten Cross-refs</li>
+<li><codeph>MAP-HYPERTEXT</codeph> - Map Hypertext Markers</li>
+<li><codeph>RELLINKS-TO-RELTABLE</codeph> - Related Links to Reltable</li>
+<li><codeph>FLATTEN-CROSS-REFS</codeph> - Flatten Cross-refs</li>
+<li><codeph>MOVE-MARKERS</codeph> - Move Markers</li>
+<li><codeph>VAR-TO-CONREF</codeph> - Variables to Conrefs</li>
+<li><codeph>MENUCASCADES</codeph> - Build Menucascades</li>
+<li><codeph>MERGE-TAGS</codeph> - Merge Code Lines</li>
+<li><codeph>TAB-TO-SPACE</codeph> - Tab to Spaces</li>
+<li><codeph>DELETE-ATTRS</codeph> - Delete Invalid Attributes</li>
+<li><codeph>DELETE-MARKERS</codeph> - Delete Unstructured Markers</li>
+<li><codeph>DELETE-EMPTY-ELEMS</codeph> - Delete Empty Elements</li>
+<li><codeph>WRITE-ROOT-MAP</codeph> - Write Root Map</li>
+<li><codeph>WRITE-ROOT-CHAP-MAPS</codeph> - Write Root and Chapter
+Maps</li>
+<li><codeph>WRITE-SINGLE-MAP</codeph> - Write Single Map</li>
+<li><codeph>WRITE-CHAPTER-MAP</codeph> - Write Chapter Map</li>
+<li><codeph>WRITE-TOPICS</codeph> - Write XML Topics</li></ul></body></topic>

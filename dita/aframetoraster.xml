@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="AFrameToRaster"?><?dtall dict="aframe"?><?dtall dict="ConvertTypes"?><?dtall
+dict="ImageDpi"?><?dtall dict="ImageFilenameTemplate"?><?dtall dict="ImagePath"?><?dtall
+dict="ImageType"?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id6f3f230b-b8d9-40c9-ba7a-3efa3babf62d"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>AFrame to Raster</title>
+<shortdesc>Generates raster images from anchored frames that contain
+multiple graphic objects.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2016-03-05"/></critdates></prolog>
+<body status = "changed"><p status = "changed">When referencing
+images, the DITA model can only reference a single file; it cannot reference
+a collection of images or graphic objects with callouts. If your
+source FrameMaker files make use of anchored frames that contain
+multiple referenced graphics or include graphic overlay objects
+(callouts, arrows, boxes, etc.), you’ll need to replace those with
+single referenced images.</p>
+<p status = "new">The best way to do this is to manually go through
+all such cases and clean them up. A common way of handling images
+with overlaid callouts is to replace the text callouts with numeric
+or character-based identifier bubbles, then add a textual legend below
+the graphic. This can take time, and if you don’t have the time
+to deal with it properly, you can use this command to generate raster
+images from the content in the anchored frames.</p>
+<p status = "changed">This command requires initial setup in the
+AFrameToRaster section of the <filepath>fm2dita.ini</filepath> file.
+The following options may be set:</p>
+<ul status = "changed"><li status = "changed"><p status = "changed">ImageType
+- the graphic format generated from the objects in the anchored frame.
+Possible types are: JPG, PNG, GIF, TIF, or a valid export filter
+hint string (use the <xref href = "listimportexportfilters.xml#id55d74a31-d043-4183-b6af-f9daa83607c5"
+type = "topic" format = "dita" scope = "local" status = "new"></xref> command
+to get the valid export filter hint strings for your installation).</p></li>
+<li><p status = "changed">ImageFilenameTemplate - a string that
+defines the “template” to be used for the graphic file names when
+generating the images. This string is a combination of plain text
+and building blocks that make up a file name. There are three special building
+blocks for use with this command: &lt;$IMG-DOCNAME> (the document name),
+&lt;$IMG-IMGNAME> (the first image file name in anchored frame [may be
+null]), and &lt;$IMG-COUNT> (the nth aframe processed)</p></li>
+<li><p status = "changed">ImagePath - the folder or path where the
+image files are generated.</p></li>
+<li><p status = "changed">ImageDpi - the DPI of the raster images
+generated.</p></li>
+<li><p status = "changed">ConvertTypes - an optional parameter that
+can be used to generate new raster images from existing images of
+specified types. This parameter is a space-delimited list of file
+types.</p></li></ul>
+<p>Refer to the information in <xref href = "thefm2ditainifile.xml#id131KAB00P5Z"
+type = "topic" format = "dita" scope = "local"></xref> for additional
+information on these INI parameters.</p>
+<p status = "changed">This command must be run before applying the
+conversion table.</p></body></topic>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<topic id = "idda7f0d50-df71-4991-84ad-b4986a13bf2d"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Book to Doc</title>
+<shortdesc>Creates a single FM file from all files in a book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2015-03-23"/></critdates></prolog>
+<body><p>This command is useful when developing a conversion table.
+Because the conversion table generation command reads from a single
+file, use this command to make a single file from all files in a
+book to ensure that the generated conversion table represents all
+styles and objects.</p></body></topic>

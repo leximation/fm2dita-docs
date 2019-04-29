@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH show?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT Dark%20Grey NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id131JK0P0YUI"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Topic Report</title>
+<shortdesc>Reports on the number of topics in the current file or
+book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2013-08-04"/></critdates></prolog>
+<body><p><indexterm>count topics in file</indexterm><indexterm>report<indexterm>topic
+count</indexterm></indexterm>Before this command can be used, you
+must set up the TopicHeadings section of the <filepath>fm2dita.ini</filepath> file.
+Review the TopicHeadings documentation in <xref href = "thefm2ditainifile.xml#id131KAB00P5Z"
+type = "topic" format = "dita" scope = "local"></xref>.</p>
+<p>This command is useful for estimating the number of topics in
+a book based on the specification of different heading levels.</p></body></topic>

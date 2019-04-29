@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<task id = "id137JH5010BI"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Task 6: Test Exported Files</title>
+<shortdesc>After generating the DITA XML files, it is important
+to perform some level of validation to ensure that everything converted
+properly.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-07-19"/>
+<revised modified = "2016-03-03"/></critdates></prolog>
+<taskbody><context><p><indexterm>post-export testing</indexterm><indexterm>testing,
+exported files</indexterm>It can be very time consuming to review
+every XML file that is generated, especially for a very large project.
+At a minimum, review each “type” of file. It’s likely that common
+structures will convert in a similar manner.</p></context>
+<steps><step><cmd>Open the root map.</cmd>
+<info><ul><li>All topicrefs should resolve (no “MISSING FILE” messages).</li></ul></info></step>
+<step><cmd>Open each submap.</cmd>
+<info><ul><li>All topicrefs should resolve (no “MISSING FILE” messages).</li></ul></info></step>
+<step><cmd>Open random topics.</cmd>
+<info><ul><li>Look for problems, make sure all’s well.</li></ul></info></step>
+<step><cmd>Run the map through a DITA-OT build as a sanity check.</cmd></step>
+<step><cmd>If all looks good, set up the root map as bookmap.</cmd>
+<info><ul><li>Retag the root element to bookmap.</li>
+<li>Retag topicrefs to chapter and appendix elements.</li>
+<li>Set up frontmatter/backmatter elements.</li></ul></info></step>
+<step><cmd>Optionally, run map through a DITA-FMx book-build.</cmd></step></steps></taskbody></task>

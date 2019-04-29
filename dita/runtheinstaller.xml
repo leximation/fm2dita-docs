@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id137JH0M70YK"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Run the Installer</title>
+<shortdesc>The installer application copies the program and support
+files into the file system.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-07-19"/>
+<revised modified = "2013-08-04"/></critdates></prolog>
+<body><p><indexterm>installation<indexterm>maker.ini modification</indexterm></indexterm><indexterm>installation<indexterm>authorization
+code</indexterm></indexterm>During the installation process the <filepath>maker.ini</filepath> file
+is modified, if you’d like to preserve a copy of this file in its
+current state, make a backup before running the installer.</p>
+<ol><li>Extract the installer executable file from the ZIP file.</li>
+<li>Run the installer and select the FrameMaker version to install
+into.</li></ol>
+<p>If this is the first time you are installing FM2DITA you will
+need to enter an authorization code before it can be used. You can
+request a 30-day trial code by choosing the <menucascade><uicontrol>Pubs-Tools</uicontrol>
+<uicontrol>FM2DITA</uicontrol><uicontrol>Try Now</uicontrol></menucascade> command.
+Enter your trial or full authorization code by choosing the <menucascade>
+<uicontrol>Pubs-Tools</uicontrol><uicontrol>FM2DITA</uicontrol>
+<uicontrol>Enter Authorization Code</uicontrol></menucascade> command</p>
+<p><indexterm>reinstallation</indexterm><indexterm>installation<indexterm>reinstallation</indexterm></indexterm>If
+you are reinstalling, there is no need to uninstall the old version,
+but you may want to make a backup of the <filepath>fm2dita.dll</filepath> file
+in case you want to roll back to the previous version.</p></body></topic>

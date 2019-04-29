@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog"OR"DITA-Topicmeta" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<task id = "id137JH40F0BI"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Task 6: Generate Maps and Topics</title>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-07-19"/>
+<revised modified = "2013-07-20"/></critdates></prolog>
+<taskbody><steps><step><cmd>Open all files in book.</cmd></step>
+<step><cmd>With focus on book, choose <menucascade><uicontrol>FM2DITA</uicontrol>
+<uicontrol>Write Root and Chapter Maps</uicontrol></menucascade>.</cmd></step>
+<step><cmd>With focus on book, choose <menucascade><uicontrol>FM2DITA</uicontrol>
+<uicontrol>Shred Topics</uicontrol></menucascade>.</cmd>
+<info><ul><li>This process may take a long time; you’ll be given
+an estimate of time based on the number of topics (this may not
+be accurate).</li></ul></info></step>
+<step><cmd>Close any files in book <i>without</i> saving (if you
+save, you can't roll back and shred again).</cmd></step></steps></taskbody></task>

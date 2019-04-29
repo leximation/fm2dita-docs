@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="colnum"?><?dtall dict="matchtag"?><?dtall dict="UnwrapTables"?><?dtall
+dict="UnwrapTablesPrefix"?><?dtall dict="prefixtag"?><topic
+    id = "id13AQHA0M0PF"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Tables to Text</title>
+<shortdesc>Converts all tables of the specified format(s) to text.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-10-26"/>
+<revised modified = "2017-06-06"/></critdates></prolog>
+<body><p>It may be necessary to convert some tables to text before
+applying the conversion table. This command prompts for the table
+format(s) to convert. If multiple formats need to be converted enter
+each format name separated with a space. The tables are converted
+to text, row by row and cell by cell, working from top to bottom
+and left to right. Each paragraph in the table cells become a new
+paragraph.</p>
+<p>If the format names are added to the <parmname status = "new">UnwrapTables</parmname> parameter
+in the <filepath>fm2dita.ini</filepath> file, you will be prompted
+with a confirmation dialog rather than a text entry dialog. The <parmname
+    status = "new">UnwrapTablesPrefix</parmname> parameter can be
+used to add a prefix to the paragraphs that result from the conversion
+process. Each of these INI parameters are space-delimited lists.
+If both lists have the same number of entries, the prefixes are
+applied to the content from the corresponding table. If the <parmname
+    status = "new">UnwrapTablesPrefix</parmname> list doesn’t provide
+a corresponding entry, the first entry in that list will be used.</p>
+<p>Refer to the information in <xref href = "thefm2ditainifile.xml#id131KAB00P5Z"
+type = "topic" format = "dita" scope = "local"></xref> for additional
+information on these INI parameters.</p>
+<p>Run this command before applying a conversion table.</p>
+<section id = "complexmapping"><title>Complex mapping option</title><p>If
+you have tables that require a variable or detailed mapping configuration,
+an expanded syntax may be used in the UnwrapTablesPrefix parameter.
+This starts by using a vertical bar (“|”) as the delimiter, then
+bracketed rules within each delimited region to specify a column
+number and a paragraph tag to match. When these rules match the
+condition in the table, a prefix can be assigned to the new paragraph
+tag or a new tag may be assigned.</p><p>The following describes
+the parameters of the syntax for this method:</p><codeblock>UnwrapTablesPrefix=|{<varname>colnum</varname>:<varname>matchtag</varname>><varname>prefixtag</varname>}|</codeblock><p>Where:</p><dl>
+<dlentry><dt>colnum</dt>
+<dd><p>The column number (starting with “1”) or asterisk (“*”) for
+any column.</p></dd></dlentry>
+<dlentry><dt>matchtag</dt>
+<dd><p>The paragraph tag to match or (“*”) for any tag.</p></dd></dlentry>
+<dlentry><dt>prefixtag</dt>
+<dd><p>The prefix to assign to the unwrapped table cell paragraph
+tag. If you want to assign a new tag name use “=” as the first character
+of the <varname>prefixtag</varname> parameter.</p></dd></dlentry></dl><p>For
+example, use the following rules if you have a 2-column table, where
+the first column should always be converted to a paragraph tag named
+“icon”, and the second column tag name should be prefixed with “info-”.</p><codeblock>UnwrapTablesPrefix=|{1:*>=icon}{2:*>info-}|</codeblock><p>Note
+the use of the “=” to assign a tag name, and in both cases, this
+is mapped regardless of the paragraph tag name in each column.</p></section></body></topic>

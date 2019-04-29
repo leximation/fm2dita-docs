@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+]>
+<?dtall dict="GotolinkHref"?><?dtall dict="gotolink"?><?dtall dict="MoveMarkers"?><?dtall
+dict="NumMarkerTypes"?><?dtall dict="newlink"?><?dtall dict="PrologElemPath"?><topic
+    id = "idbc786869-2a28-407f-90ac-cc7f56179d26"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>1.04 - 6 June 2017</title>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<author>scottp</author>
+<critdates><created date = "2015-03-19"/>
+<revised modified = "2019-02-04"/></critdates></prolog>
+<body status = "changed"><section status = "changed"><title>New
+Features</title><dl status = "changed"><dlentry><dt status = "changed">Support
+for FM 2017</dt>
+<dd status = "changed"><p>Yes!</p></dd></dlentry>
+<dlentry><dt status = "changed">New or changed fm2dita.ini parameters</dt>
+<dd status = "changed"><ul status = "new"><li><p status = "new">General/MainFlow
+- new</p></li>
+<li><p status = "new">General/RootMapNameTpl - new</p></li>
+<li><p status = "new">General/StopWords - supports NULL value to
+prevent stripping of stopwords</p></li>
+<li><p status = "new">General/PunctuationChar - new</p></li></ul></dd></dlentry>
+<dlentry><dt status = "changed">New building blocks and modifiers</dt>
+<dd status = "changed"><ul><li><p status = "new">&lt;$TITLE_SPACETODASH>
+- converts spaces to dashes in titles</p></li></ul></dd></dlentry>
+<dlentry status = "changed"><dt status = "changed">Tables to Text
+command updates</dt>
+<dd status = "changed"><p status = "new">Added support for complex
+mapping of table cells to paragraph tags. The UnwrapTablesPrefix
+INI parameter accepts a new syntax to allow finer control of tag
+mapping and assignment.</p></dd></dlentry></dl></section>
+<section><title>Sample File and Structure Application Updates</title><dl
+    status = "changed"><dlentry><dt status = "changed">None</dt>
+<dd status = "changed"></dd></dlentry></dl></section>
+<section><title>Bug Fixes / Minor Updates</title><dl status = "changed">
+<dlentry><dt status = "changed">Disallow duplicate dashes or underbars</dt>
+<dd status = "new"><p status = "changed">When used for building
+filenames from titles, sequential dashes or underbars collapse into
+one character.</p></dd></dlentry>
+<dlentry><dt status = "changed">BookToDoc command fix</dt>
+<dd status = "changed"><p status = "new">No longer includes the
+first file in the book twice.</p></dd></dlentry>
+<dlentry><dt status = "changed">Check For Topic Collisions command
+update</dt>
+<dd status = "new"><p status = "new">Now generates a document listing
+all proposed file names.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Generated map updates</dt>
+<dd status = "new"><p status = "new">Generated bookmap now includes
+frontmatter/toc elements.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">RetagParas command update</dt>
+<dd status = "new"><p status = "new">The PREFIX parameter can now
+specify a replacement tag name rather than just a prefix. Use the
+“=” character to define the new tag name.</p></dd></dlentry>
+<dlentry status = "new"><dt status = "new">Move Markers command
+update</dt>
+<dd status = "new"><p status = "new">Supports adding of static attribute
+values.</p></dd></dlentry></dl></section></body></topic>

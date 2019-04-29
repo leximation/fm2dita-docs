@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="UnwrapElems"?>
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH show?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id136OHF0H05Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Unwrap Elements</title>
+<shortdesc>Unwraps elements of the specified type in the current
+file or book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-06-24"/>
+<revised modified = "2013-10-27"/></critdates></prolog>
+<body><p><indexterm>unwrap elements</indexterm><indexterm>elements<indexterm>unwrapping</indexterm></indexterm>This
+command prompts for an element name to unwrap. It scans for all
+elements of the specified name and unwraps each, promoting any child
+elements. If multiple element names need to be processed, enter
+multiple element names separated by spaces.</p>
+<p>If a table object element is specified in this command, the “Tables
+to Text” processing is performed and the table object, and related
+structure, is unwrapped. This results in the content of each table
+cell being promoted to be a child of the element that is the parent
+of the specified table object element.</p>
+<p>You can pre-set the element names in the UnwrapElems parameter
+in the <filepath>fm2dita.ini</filepath> file. Refer to the information
+in <xref href = "thefm2ditainifile.xml#id131KAB00P5Z" type = "topic"
+format = "dita" scope = "local"></xref> for details on this INI
+parameter.</p>
+<p>This command should be run after the EDD has been applied.</p></body></topic>

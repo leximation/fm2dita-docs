@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id137JG0W00HS"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Requirements</title>
+<shortdesc>Assumptions and requirements for effective use of FM2DITA.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-07-19"/>
+<revised modified = "2013-08-04"/></critdates></prolog>
+<body><p><indexterm>requirements</indexterm><indexterm>assumptions</indexterm>FM2DITA
+is a plugin that provides commands and utilities that assist with
+the process of converting unstructured FrameMaker documents into
+DITA. It is not a magic bullet that does everything for you (if
+that’s what you’re looking for, hire a consultant). If used properly,
+it will allow you to establish a reliable and consistent conversion
+process and will save you a significant amount of time.</p>
+<p>The following list describes the additional tools (both software
+and mental) that will likely be required to make effective use of
+this plugin.</p>
+<ul><li><p><i>FrameMaker.</i> Version 7.2 or later.</p></li>
+<li><p><i>DITA support in FrameMaker.</i> We recommend that you
+use DITA-FMx to provide DITA support in FrameMaker (all versions),
+but you can use this plugin with the default DITA support as well.</p></li>
+<li><p><i>Conversion table development expertise.</i> This plugin
+assumes that you have developed a conversion table that does the
+initial conversion from unstructured FM files to structured FM files.
+FM2DITA does provide “preconversion” tools and utilities that you may
+want to use before applying the conversion table, but it does not
+create the conversion table for you. If you do not have conversion
+table development expertise, you can have this created for you by
+a consultant, and you’ll be able to use this plugin to perform the
+remainder of the conversion yourself.</p></li>
+<li><p><i>DITA Open Toolkit or other validation tools.</i> After
+completing the conversion process and breaking the structured FM
+files into DITA topics and maps, it is often useful to have a command
+line tool that you can run to do a quick sanity check validation
+on the resulting files. This is not required, but will help to find
+any problems that might become evident later.</p></li></ul></body></topic>

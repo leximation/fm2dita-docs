@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="AltTableTypes"?><?dtall dict="BodyIndent"?><?dtall dict="choicetable"?><?dtall
+dict="conrefid"?><?dtall dict="dt"?><?dtall dict="li"?><?dtall dict="menucascade"?><?dtall
+dict="P:Body"?><?dtall dict="P:BodyIndent"?><?dtall dict="p[outputclass=&quot;BodyIndent"?><?dtall
+dict="tbody"?><?dtall dict="tfoot"?><?dtall dict="thead"?><?dtall dict="uicontrol"?><topic
+    id = "id1382B0J07Y4"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Setting Up Mapping Rules</title>
+<shortdesc>Mapping rules define the initial mapping from styles
+and objects to elements.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-08-02"/>
+<revised modified = "2014-02-10"/></critdates></prolog>
+<body><p><indexterm>conversion table<indexterm>mapping rules</indexterm></indexterm>The
+first task is to organize the rows in the table so they are ordered
+by some reasonable logic. We typically put the heading styles at
+the top, and order them from highest to lowest levels. The order
+really doesn’t matter, it just helps to be able to locate things
+later on. If you’re converting to multiple “models” (task, concept,
+reference), it’s best to group those styles together in the table.
+You’ll probably have common styles that are used for multiple models
+and other styles that are specific to a style. Group the common
+styles first, then the model-specific styles. Feel free to add empty
+rows between groups to help organize things. You can also split
+the table into multiple smaller tables and add heading and descriptive
+text before each table to help document the process. For smaller
+tables this isn’t very important, but as the tables grow in size
+and complexity, this can be useful.</p>
+<p>Once you’ve made a first pass at organizing the styles and objects
+in the table, start assigning initial elements to those styles and
+objects. Keep in mind that you’re defining a process of element
+wrapping to build up your final structure from the lowest level
+to the top. In order to do this you must be very familiar with the
+structure of DITA (or whatever is your structural model). If you
+don’t have a very good understanding of the model, stop and learn
+that before continuing.</p>
+<p>Typically, the paragraph styles will map to a &lt;p> element.
+Since in DITA, you’ll end up wrapping &lt;p> in an &lt;li> for list
+items or &lt;note> for notes, this is a safe place to start. Headings
+will map to a &lt;title> element. If you do have a specific paragraph style
+that maps to the DITA &lt;shortdesc> element, go ahead and map that
+to &lt;shortdesc> instead of &lt;p>. If you’ve got definition list
+styles, and one of those is the “term”, you’ll probably want to
+map that to the &lt;dt> element. If you want to know “from whence”
+the new elements came, or if you need to be able to apply special
+formatting to certain elements, you can assign a value to the outputclass attribute.
+In the following partial example, there are two rows, the first
+just maps the “Body” paragraph style to the &lt;p> element, and
+the second maps the “BodyIndent” to a &lt;p> element with an outputclass
+attribute value of “BodyIndent”.</p>
+<table frame = "all" colsep = "1" rowsep = "1">
+<tgroup cols = "3" outputclass = "FormatA" colsep = "1" rowsep = "1">
+<colspec colnum = "1" colname = "1" colwidth = "1.750in"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.917in"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.333in"/>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">P:Body</entry>
+<entry colname = "2">p</entry>
+<entry colname = "3"></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">P:BodyIndent</entry>
+<entry colname = "2">p[outputclass="BodyIndent"]</entry>
+<entry colname = "3"></entry>
+</row>
+</tbody>
+</tgroup></table>
+<p>You’ll also typically want to start assigning values to the qualifier
+column (the third column), but we’ll discuss that a bit later when
+we get into element wrapping.</p>
+<p>Character styles will often not be wrapped more than once. The
+initial mapping from style to element is typically all that’s needed.
+One exception to this is if you’re able to wrap sequential &lt;uicontrol>
+elements in a &lt;menucascade> element. If you just use “Bold” for
+all types of bold tagging regardless of their semantic nature, you’ll probably
+just have to map that to the &lt;b> element, but if you do have
+semantically named character styles, it’s nice to map them to corresponding
+DITA elements.</p>
+<p>After the paragraph and character style mapping, are various
+object mapping rows. Variables use the “UV:” (user variable) and
+“SV:” (system variable) prefix, followed by the variable name. If
+a variable isn’t included in the conversion table, it will convert
+as plain text. You’ll typically not map system variables to any
+elements. If you want your user variables to convert into conrefs
+(via the FM2DITA Variable to Conref command), you’ll need to map
+the variable to an inline element (typically &lt;ph>, but could
+be anything that makes sense) and include a conrefid attribute.
+This conrefid attribute is not a valid DITA attribute, it’s just
+what is used by the Variable to Conref command to identify elements
+to turn into conrefs.</p>
+<p>All cross-ref formats must be included in the conversion table.
+If a cross-ref is not included, you’ll end up with an element named
+&lt;CROSSREF> in the resulting file. Cross-refs are identified by
+a “X:” prefix and include the format name. These should be mapped
+to the &lt;xref> element, and you’ll typically set the outputclass
+attribute to the value of the cross-ref format name. This allows
+the formats to round-trip and be assigned the proper format name.
+If you do not want a cross-ref to convert as a “formatted” reference,
+omit the outputclass attribute.</p>
+<p>All markers that you want to convert to DITA elements, must be
+listed in the conversion table. Any marker not listed, will initially
+convert as an unstructured marker, which is represented as a processing
+instruction (PI) in XML. You’ll want to delete these unstructured
+markers before saving to XML, otherwise they will persist as PIs and
+cause unnecessary bloat in the XML. In general, you’ll just want
+to preserve Index markers. If you’re using DITA-FMx, it’s possible
+to convert other markers into an &lt;fm-data-marker> element (which
+saves as a DITA &lt;data> element).</p>
+<p>The “G:” code in the first column of a conversion table will
+map all graphics to the specified element. There’s no way to identify
+different types of graphics, the are all just mapped through this
+one row. For DITA, you’ll map graphics to the &lt;image> element.
+Graphic and table mapping can make use of a special “promote” operator. When
+used for graphics, this breaks the image out of the current paragraph
+and makes it a child of the “parent” element. While this may seem
+like a good thing to do, use of this feature will remove inline
+images from the container paragraph (which makes them no longer
+inline). The best practice for images is to always anchor the anchored
+frame to an “image-anchor” paragraph or to a “figure-title” paragraph.
+If this is done, you should not use the “promote” operator for graphics.</p>
+<p>Tables are identified with the “T:” prefix followed by the table
+format name. You can just use the “T:” code without the table names
+to map all tables to the same element. If you don’t want to preserve
+the table formats, that is fine. Otherwise, if you do want tables
+to continue to use different formats, provide a row for each table format,
+and map each to the &lt;tgroup> element. An important point to understand is
+that the table “object” in a FM document, maps to the &lt;tgroup>
+element in a DITA table. The &lt;table> element is a “container”
+that wraps the table object. Where this can cause some confusion
+is when working with a table title. The DITA &lt;title> element
+is a child of the &lt;table> element. This means that it is not
+in the location where a FrameMaker table object expects its title
+to be. FrameMaker expects the table title to be inside of the table
+object, which means it would be a child of the &lt;tgroup> element.
+Because of this you never want to use the FrameMaker Table Designer
+to enable the table title, this will create an invalid structure
+in DITA.</p>
+<p>Following the table format mappings you’ll map each of the sub-table
+objects (table parts) to the appropriate elements. The “TT:” code
+maps the table title, which would typically be a &lt;title> element.
+The “TH:” and “TB:” codes map the table head and table body, which
+would be &lt;thead> and &lt;tbody> elements. FrameMaker tables can have
+a table footer area which is the “TF:” code. DITA does not support
+the table footer, so if you map this to the &lt;tfoot> element,
+and you use the FM2DITA Fix Tables command, it will merge all “tfoot”
+rows to the end of the “tbody” rows and assign a special outputclass
+value so you can format them differently. Table rows and table cells
+use the “TR:” and “TC:” codes, which should map to the &lt;row>
+and &lt;entry> elements.</p>
+<p>If you want to convert tables into other table types (like &lt;simpletable>
+or &lt;choicetable>), map the appropriate table format to those
+table element types. (These are the actual table objects, equivalent
+to a &lt;tgroup>.) You’ll end up with a &lt;simpletable> that has
+child elements like &lt;thead> and &lt;tbody>, which isn’t valid
+DITA, but since there’s only one option for mapping the sub-table
+objects, this is what’s done. The FM2DITA Fix Tables command will
+locate these alternate table types and retag the internal structure
+to make them into proper DITA structures. If you have custom table
+structures, you can define them in the AltTableTypes section of
+the <filepath>fm2dita.ini</filepath> file.</p>
+<p>As mentioned with graphics, tables can make use of the “promote”
+operator to break the table out of the current element and elevate
+it to a sibling element. This it typically the right thing to do
+since tables are typically anchored into the previous paragraph.</p></body></topic>

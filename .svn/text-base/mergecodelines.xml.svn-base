@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Topicmeta Red NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE show?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH show?>
+<?Fm Condition DITA-Data AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Data"OR"DITA-Prolog" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id131JK3080BI"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Merge Code Lines</title>
+<shortdesc>Combines sequential instances of the specified element
+into a single block in the current file or book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2013-10-27"/></critdates></prolog>
+<body><p><indexterm>code lines, merging</indexterm><indexterm>codeblock</indexterm>This
+command prompts for an element name to merge. While processing,
+it locates multiple (2 or more) instances of the specified element
+and combines them into a single element of the same name. Each merged
+element is terminated with a line break (SHIFT+ENTER).</p>
+<note>The attribute settings of the first element are migrated to
+the new container element, while any attributes on later elements
+will be lost.</note>
+<p>This is intended to be used to combine multiple separate instances
+of codeblock or similar elements into a single block element. If
+multiple element types need to be merged, run this command for each
+element type.</p>
+<p>When checking for sequential elements, the outputclass attribute
+value is also compared. If the attribute values diffe, the elements
+won’t be merged.</p>
+<p>You can pre-set these values in the MergeElems parameter in the <filepath>fm2dita.ini</filepath> file.
+Refer to the information in <xref href = "thefm2ditainifile.xml#id131KAB00P5Z"
+type = "topic" format = "dita" scope = "local"></xref> for details
+on this INI parameter.</p>
+<p>This command must be run after the EDD has been applied.</p></body></topic>

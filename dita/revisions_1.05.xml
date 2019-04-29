@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+]>
+<?dtall dict="GotolinkHref"?><?dtall dict="gotolink"?><?dtall dict="MoveMarkers"?><?dtall
+dict="NumMarkerTypes"?><?dtall dict="newlink"?><?dtall dict="PrologElemPath"?><topic
+    id = "idbc786869-2a28-407f-90ac-cc7f56179d26"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>1.05 - 5 February 2019</title>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<author>scottp</author>
+<critdates><created date = "2015-03-19"/>
+<revised modified = "2019-02-04"/></critdates></prolog>
+<body status = "changed"><section status = "changed"><title>New
+Features</title><dl status = "changed"><dlentry><dt status = "changed">Support
+for FM 2019</dt>
+<dd status = "changed"></dd></dlentry></dl></section>
+<section><title>Sample File and Structure Application Updates</title><dl
+    status = "changed"><dlentry><dt status = "changed">None</dt>
+<dd status = "changed"></dd></dlentry></dl></section>
+<section><title>Bug Fixes / Minor Updates</title><dl status = "changed">
+<dlentry><dt status = "changed">None</dt>
+<dd status = "changed"></dd></dlentry></dl></section></body></topic>

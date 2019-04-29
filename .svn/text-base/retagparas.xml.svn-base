@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="Delim"?><?dtall dict="NumPasses"?><?dtall dict="NumStep"?><?dtall
+dict="RetagParas"?><?dtall dict="retag"?><?dtall dict="retagging"?><?dtall
+dict="ToDo"?><?dtall dict="unprefixed"?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id136OF2009Y4"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Retag Paras</title>
+<shortdesc>Renames paragraph tags based on surrounding paragraph
+tags.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-05-24"/>
+<revised modified = "2016-03-05"/></critdates></prolog>
+<body status = "changed"><p><indexterm>paragraph retagging</indexterm>If
+you are converting into multiple structural models, it is typically
+required to have unique paragraph tags in each model group. This
+is needed to differentiate between concept and task, for example,
+but also within topics (like task) to identify paragraphs within
+different sections. This command assigns a prefix to specified paragraph
+tags based on tag matching rules defined in the RetagParas section
+of the <filepath>fm2dita.ini</filepath> file.</p>
+<p>This command can make multiple passes over a document, allowing
+you to build up “layers” of tag names based on changes made in a
+previous pass. There are two basic types of rules that can be used.
+A “tag until” rule starts assigning a prefix to the tag of all paragraphs
+that follow a specified paragraph tag until it reaches another specified
+paragraph tag. A “look ahead” rule assigns a prefix to a specified paragraph’s
+tag if the paragraph tags that follow match the specified rule.
+Using a combination of these rules provides very powerful retagging
+capabilities.</p>
+<p>This command requires initial setup in the RetagParas section
+of the <filepath>fm2dita.ini</filepath> file. The following options
+may be set:</p>
+<ul><li><p>NumPasses - the number of passes or iterations to perform.
+For more than one pass, you’ll need to add additional RetagParas-&lt;N>
+sections to the INI file. Default value: “1”</p></li>
+<li><p>Delim - the delimiter character used to separate the tag
+name from the associated prefix (described below). Default value:
+“>”</p></li>
+<li><p>Count - the number of tag/prefix rules in this section.</p></li>
+<li><p>&lt;N> - tag/prefix rules identified by sequential numeric
+values (starting with “1”). Depending on the format of the tag/prefix
+rules, different types of processing is performed (see below for
+details and examples). The prefix is optional, and if provided is
+separated from the tag name by the “Delim” character.</p></li></ul>
+<p>Refer to the information in <xref href = "thefm2ditainifile.xml#id131KAB00P5Z"
+type = "topic" format = "dita" scope = "local"></xref> for additional
+information on these INI parameters.</p>
+<p>This command must be run before applying the conversion table
+(since the conversion table should be designed to key off of these
+new tag names).</p>
+<section><title>Tag/Prefix rule syntax</title><p>Although there
+are two basic types of rules, “tag until” and “look ahead”, there
+are three formats for rules that can be used in a RetagParas section.
+The fundamental syntax for all rules is as follows (note that the
+square brackets here are actual characters, not indicators of optional
+content):</p><codeblock><varname>TAG</varname>[<varname>MATCHRULE</varname>]><varname>PREFIX</varname></codeblock><p>Where:</p><dl>
+<dlentry><dt>TAG</dt>
+<dd><p>Specifies the paragraph tag to operate on or from (depending
+on the existence of the <varname>MATCHRULE</varname>). All <varname>TAG</varname> values
+must be unique in each section; if you need to use different <varname>MATCHRULE</varname> values
+for the same <varname>TAG</varname> name, create additional sections
+and increment the number of NumPasses.</p></dd></dlentry>
+<dlentry><dt>MATCHRULE</dt>
+<dd><p>Only used for the “look ahead” type of retagging rule. Defines
+the sequence of paragraph tags that may follow the <varname>TAG</varname> paragraph.
+The syntax of the <varname>MATCHRULE</varname> loosely follows the
+syntax used for DTD general rule specification. The MATCHRULE can
+use parenthesis to group tag names separated with a vertical bar,
+but nested groups are not supported. The following operators are supported
+to indicate the frequency or existence of tags: “*” (zero or more),
+“+” (one or more), and “?” (optional). These operators must never
+be used within a group of tag names, and should follow the closing
+parenthesis if used. If no operator is used, that tag is required
+in the sequence.</p></dd></dlentry>
+<dlentry><dt>PREFIX</dt>
+<dd><p>A prefix string that is applied to the matching paragraph
+tag names. Depending on the existence of a <varname>MATCHRULE</varname>,
+the prefix string is either applied to the <varname>TAG</varname> paragraph
+or the paragraph tags that follow the <varname>TAG</varname> paragraph.
+The <varname>PREFIX</varname> is separated from the <varname>TAG</varname>/<varname>MATCHRULE</varname> by
+the Delim character (default “>”) indicated in the INI file. The <varname>PREFIX</varname> is
+optional.</p></dd></dlentry></dl><p>If the <varname>TAG</varname> is
+specified with a following <varname>PREFIX</varname>, the command
+applies that prefix string to all paragraph tags that follow each <varname>TAG</varname> paragraph
+tag, until another <varname>TAG</varname> paragraph tag is encountered.</p><p>If
+the <varname>TAG</varname> is specified with no <varname>PREFIX</varname>,
+it tells the command to stop applying the prefix without adding
+a new prefix to later paragraph tags.</p><p>If the <varname>TAG</varname> is
+specified with a following square bracketed <varname>MATCHRULE</varname> descriptor,
+that descriptor phrase tells the command to only match a <varname>TAG</varname> when
+the sequence of tags indicated in the <varname>MATCHRULE</varname> is
+a match. When this match occurs, the <varname>PREFIX</varname> specified
+(required in this case) is applied to the <varname>TAG</varname> paragraph
+tag, and not the tags that follow.</p></section>
+<section><title>“Tag Until” rules</title><p>A document may use H0,
+H1, and H2 tags for the general headings and a ToDo tag for procedures.
+The following INI section will retag the paragraphs in the H1 and
+H2 sections with a “con-” prefix, and the paragraphs in the ToDo
+sections with a “task-” prefix. It leaves the paragraphs in the
+H0 section without a prefix (no delimiter character or prefix is
+specified for the H0 tag).</p><codeblock outputclass = "ini">[RetagParas] 
+NumPasses=1 
+Delim=> 
+Count=4 
+1=H0 
+2=H1>con- 
+3=H2>con- 
+4=ToDo>task-</codeblock><p>If you want to apply multiple levels
+of prefixes (often useful to differentiate sections in task topics),
+set the NumPasses parameter to the number of passes to perform. When
+applying multiple passes on a document, you should start with the
+“lowest” level of tags. The following INI sections provide for separate
+tagging of the “step” content from any content that might precede
+the steps (in the “context” section of a task).</p><codeblock outputclass = "ini">[RetagParas] 
+NumPasses=2 
+Delim=> 
+Count=5 
+1=H0 
+2=H1 
+3=H2 
+4=ToDo 
+5=step>step- 
+ 
+[RetagParas-2] 
+Count=4 
+1=H0 
+2=H1>con- 
+3=H2>con- 
+4=ToDo>task-</codeblock><p>You’ll notice that in the first pass
+(RetagParas section), only the “step” tags are “prefix restart”
+paragraphs. The other tags are included so the retagging will stop when
+the task ends. In the second pass (RetagParas-2 section) an additional
+prefix is applied, and in this section the “step” tag is omitted
+so it will itself get another prefix, along with any paragraphs
+in each step.</p></section>
+<section><title>“Look Ahead” rules</title><p>The look ahead rules
+make use of the <varname>MATCHRULE</varname> descriptor phrase that
+follows the <varname>TAG</varname> in a rule definition. This is
+used when your source document doesn’t contain special heading paragraph
+tags that you can use to identify specific topic groups. For example,
+if a document doesn’t use a ToDo tag for task headings, but always
+starts a task with some Body paragraphs followed by a numbered list
+with the tag NumStep. This may happen after a H1, H2, or H3 heading.</p><p>This
+type of rule is typically used with a following “tag until” rule
+in a multipass operation. In the example below, the first pass applies
+a “task-” prefix to the H1, H2, and H3 headings that match the <varname>MATCHRULE</varname> descriptor.
+It leaves all other tags alone. In the second pass, all unprefixed
+headings are assumed to be concept topics and apply the “con-” prefix
+to all content after each heading. It also assigned the “task-” prefix
+to all content after the task-tagged headings.</p><codeblock outputclass = "ini">[RetagParas] 
+NumPasses=2 
+Delim=> 
+Count=3 
+1=H1[Body*,NumStep]>task- 
+2=H2[Body*,NumStep]>task- 
+3=H3[Body*,NumStep]>task- 
+ 
+[RetagParas-2] 
+Count=7 
+1=H0 
+2=H1>con- 
+3=H2>con- 
+4=H3>con- 
+5=task-H1>task- 
+6=task-H2>task- 
+7=task-H3>task-</codeblock></section>
+<section status = "changed"><title>RetagParas Groups</title><p
+    status = "changed">You can create multiple groups of rules for
+the RetagParas command. To make use of this feature, add a RetagParaGroups
+section to the INI file.</p><codeblock status = "changed" outputclass = "ini">[RetagParasGroups] 
+Count=2 
+1=First Group 
+2=Second Group</codeblock><p status = "changed">With this set up,
+when you run the RetagParas command, you'll get a dialog prompting
+you to select the group to run.</p><p status = "new">When using
+this feature, the section names for the first group will start with “RetagParas1”,
+the second group will start with “RetagParas2”, and so on. For example,
+what would normally be the main RetagParas section will be RetagParas1. If
+this group has multiple passes, what would normally be “RetagParas-2”
+is now “RetagParas1-2”.</p><p status = "new">All of the functionality
+within a group is identical to before.</p></section></body></topic>

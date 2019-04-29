@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="GotolinkHref"?><?dtall dict="gotolink"?><?dtall dict="NewlinkToData"?><?dtall
+dict="newlink"?>
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id142AA060SHS" status = "new"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Map Hypertext Markers</title>
+<shortdesc status = "new">Converts the content of Hypertext markers
+into usable elements in the current file or book.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2014-02-10"/>
+<revised modified = "2016-03-05"/></critdates></prolog>
+<body status = "changed"><p status = "changed"><indexterm>cross-ref<indexterm>conversion</indexterm></indexterm><indexterm>xref
+conversion</indexterm>This command relies on proper setup of parameters
+in Hypertext section of the <filepath>fm2dita.ini</filepath> file.
+If you are converting “gotolink” Hypertext markers, set up the GotolinkHref
+parameter with the required format. If you are converting “newlink” Hypertext
+markers and want them converted into fm-data-markers, set the NewlinkToData
+parameter to “1”. If you are converting “message URL” Hypertext
+markers, those will convert into @href attributes in external xref
+elements by default; no setup is necessary.</p>
+<p status = "changed">This command must be run after the EDD has
+been applied.</p></body></topic>

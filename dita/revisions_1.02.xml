@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?dtall dict="GotolinkHref"?><?dtall dict="gotolink"?><?dtall dict="MoveMarkers"?><?dtall
+dict="NumMarkerTypes"?><?dtall dict="newlink"?><?dtall dict="PrologElemPath"?><topic
+    id = "id142AF0M0V5Z"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>1.02 - 5 May 2014</title>
+<prolog><author>Scott Prentice</author>
+<author>test</author>
+<critdates><created date = "2013-10-26"/>
+<revised modified = "2014-05-05"/></critdates></prolog>
+<body><section status = "changed"><title>New Features</title><dl
+    status = "changed"><dlentry><dt status = "changed">Added the
+ability to move multiple marker types</dt>
+<dd status = "changed">The Move Markers command now supports moving
+multiple marker types. The MoveMarkers section in the INI file requires
+two new parameters, NumMarkerTypes and PrologElemPath. Additionally,
+if multiple markers are being moved, new MoveMarkers-<i status = "new">N</i> sections
+must be added for each marker type.</dd></dlentry>
+<dlentry><dt status = "changed">Added Map Hypertext Markers command</dt>
+<dd status = "changed">This command applies processing to “message
+URL”, “gotolink”, and “newlink” Hypertext markers. The “message
+URL” markers will convert into external xrefs, “gotolink” markers
+convert into external xrefs, based on the format specified in the
+GotolinkHref parameter, and “newlink” markers can optionally be
+converted into fm-data-marker elements.</dd></dlentry>
+<dlentry><dt status = "changed">Added Related Links to Reltable
+command</dt>
+<dd status = "changed">This command generates a reltable map from
+the related links in each file.</dd></dlentry>
+<dlentry><dt status = "changed">Allow file name reference of stop
+words</dt>
+<dd status = "changed">The StopWords INI parameter can now specify
+a plain text file for the list of stop words to remove from titles
+when generating topic file names.</dd></dlentry>
+<dlentry><dt status = "changed">New URI-encoding building blocks</dt>
+<dd status = "changed">Three new building blocks have been added:
+&lt;$URI-VAR(<i status = "new">VARNAME</i>)>, &lt;$URI-MARKERTEXT>,
+and &lt;$URI-LINKTEXT>. These building blocks result in URI-coded
+values and are intended for use with the GotolinkHref parameter
+for the Map Hypertext Markers command.</dd></dlentry>
+<dlentry><dt status = "changed">Split the Fix/Flatten Cross-refs
+command into two commands</dt>
+<dd status = "changed">To support better processing of cross-refs
+and related links, the Fix/Flatten Cross-refs command has been split
+into two commands, Fix Cross-refs and Flatten Cross-refs.</dd></dlentry>
+<dlentry><dt status = "changed">Support disabling of date metadata
+in generated maps</dt>
+<dd status = "changed">By default, all generated maps will include
+the date in the topicmeta (or bookmeta). To disable this feature
+set the General/IncludeMetadataInMaps parameter to “0” in the <filepath
+    status = "new">fm2dita.ini</filepath> file.</dd></dlentry></dl></section>
+<section><title>Sample File and Structure Application Updates</title><p>No
+changes or updates have been made to the structure application or
+sample files.</p></section>
+<section><title>Bug Fixes / Minor Updates</title><dl status = "changed">
+<dlentry><dt status = "changed">Updated the Conversion Pod</dt>
+<dd status = "changed">The Conversion Pod has been updated to correspond
+with the changes to the available conversion commands.</dd></dlentry></dl></section></body></topic>

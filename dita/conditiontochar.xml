@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+
+<?Fm Condition DITA-Data Forest%20Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Cleanup Green NO_OVERRIDE show?>
+<?Fm Condition DITA-Comment AsIs NO_OVERRIDE show?>
+<?Fm Condition DITA-Prolog AsIs NO_OVERRIDE show?>
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green SINGLE_UNDERLINE hide?>
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red STRIKETHROUGH hide?>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm BoolCondExpr "DITA-Comment"OR"DITA-Prolog"OR"DITA-Data"OR"DITA-Cleanup" State 0?>
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_OFF_TRACK_CHANGE?>
+<topic id = "id96402890-cd5a-447d-921c-cde96e3d6aa1" status = "changed"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Condition to Char Tag</title>
+<shortdesc>Assigns character tags to content based on conditional
+tagging.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-19"/>
+<revised modified = "2016-03-05"/></critdates></prolog>
+<body><p status = "changed"><indexterm>conditions<indexterm>to character
+tags</indexterm></indexterm>This command requires setup to the CondToCharTag
+section of the <filepath>fm2dita.ini</filepath> file. Once this
+INI section is updated with condname/chartag pairs, run it on a
+file or book to replace conditional ranges with the specified character
+tags in all files.</p>
+<p status = "changed">The <cmdname conref = "_shared.xml#id131KC0I0VHS/cmd_ren-conds"></cmdname> command
+could be used to clean up condition naming before using the this
+command. It is always best to use the <cmdname conref = "_shared.xml#id131KC0I0VHS/cmd_show-conds"></cmdname> command before
+using this command.</p></body></topic>

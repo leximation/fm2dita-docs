@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!-- End Document Specific Declarations -->
+
+]>
+<topic id = "id131KBE070Y4"
+    xmlns:ditaarch = "http://dita.oasis-open.org/architecture/2005/">
+<title>Topic and Map Template Building Blocks</title>
+<shortdesc>Building blocks control the file name format and structure
+for topics and maps.</shortdesc>
+<prolog><author>Scott Prentice</author>
+<author>scottp</author>
+<critdates><created date = "2013-01-20"/>
+<revised modified = "2017-06-06"/></critdates></prolog>
+<body><p><indexterm>building blocks</indexterm><indexterm>filename
+building blocks</indexterm>The <filepath>fm2dita.ini</filepath> file
+includes two settings that require the use of file name building blocks.
+Most of the building blocks are the same as those provided in DITA-FMx
+(all except the “$FMX_” types), in addition to a four more “$FM_”
+types. A building block is a string of text enclosed in angle brackets
+and are used in the <parmname status = "new">TopicNameTpl</parmname> and <parmname
+    status = "new">MapNameTpl</parmname> INI parameters.</p>
+<p status = "new"><indexterm status = "new">$TITLE* building blocks</indexterm>The <codeph
+    status = "new">$TITLE*</codeph> building blocks provide various
+options for using the text of the topic title. In all cases the
+text returned is processed by stripping the “stop words” as defined
+in the <parmname status = "new">StopWords</parmname> parameter.
+If you don’t want sop words stripped, set the StopWords parameter
+to an empty string (nothing). The string returned by the <codeph
+    status = "new">$TITLE*</codeph> building blocks also has punctuation
+deleted (other than underscores or dashes for those related building
+blocks). If you don’t want the punctuation to be deleted, but replaced
+with another character, set the <parmname status = "new">PunctuationChar</parmname> parameter
+to that value. In all cases, spaces or punctuation characters will
+collapse into a single character.</p>
+<section status = "new"><title>Building Block Modifiers</title><p
+    status = "new"><indexterm status = "new">building block modifiers</indexterm>You
+can include various types of modifiers after the building block
+name in square brackets to modify the resulting value.</p><p
+    status = "new"><indexterm status = "new">building block modifiers<indexterm>substring</indexterm></indexterm>Entering
+a number (from 0 to 99), limits the length of the resulting string
+to that value (the first <i status = "new">N</i> characters). If
+you want to extract a substring from a building block, include the
+start and end positions in square brackets. For example, the following
+building block will extract the first two characters from the topic
+type:</p><p status = "new"><codeph status = "new">&lt;$TOPIC_TYPE[2]></codeph></p><p
+    status = "new">Or, to extract the second through fifth characters,
+use the following syntax:</p><p status = "new"><codeph status = "new">&lt;$TOPIC_TYPE[2-5]></codeph></p><p
+    status = "new"><indexterm status = "new">building block modifiers<indexterm>case</indexterm></indexterm>Other
+modifiers can be used to change the case of the text that results
+from the building block. These single-character modifers must follow
+any numeric modifiers if present. The following modifiers are available:</p><ul>
+<li><codeph>U</codeph> - uppercase</li>
+<li><codeph>L</codeph> - lowercase</li>
+<li><codeph>T</codeph> - title case</li></ul><p>The following syntax
+will generate the first two characters from the topic type in uppercase:</p><p
+    status = "new"><codeph status = "new">&lt;$TOPIC_TYPE[2U]></codeph></p><p
+    status = "new"><indexterm status = "new">building block modifiers<indexterm>split</indexterm></indexterm>An
+additional “split” building block modifier is available for extracting
+a “field” from a delimited string. If the string being processed
+(<codeph status = "new">$MARKERTEXT</codeph> for example) contains values
+separated by colons, you can use this modifier to return the nth
+field from that string. Use the following syntax:</p><p status = "new"><codeph
+    status = "new">[&lt;index>&lt;splitchar>S]</codeph></p><p
+    status = "new">where &lt;index> specifies the 1-based field
+and &lt;splitchar> is the delimiter character (a single character).
+The following example will return the second “field” in a colon-delimited
+marker text string:</p><p status = "new"><codeph status = "new">&lt;$MARKERTEXT[2:S]></codeph></p></section>
+<section status = "new"><title>Building Blocks</title><p
+    status = "changed"><indexterm>$ building blocks</indexterm>Valid
+building blocks are listed below. Some of these building blocks
+will make more sense for use in specific situations than others.
+Using an invalid building block may have unexpected results; be
+sure to thoroughly test on a small set of files if you’re unsure.</p><ul
+    id = "id0825A0807PN" status = "changed"><li><p status = "changed"><codeph>&lt;$FM_VOLNUM></codeph> -
+volumne number (or letter) defined in the FM file</p></li>
+<li><p status = "changed"><codeph>&lt;$FM_CHAPNUM></codeph> - chapter
+number (or letter) defined in the FM file</p></li>
+<li><p status = "changed"><codeph>&lt;$FM_FILENAME></codeph> - file
+name (without path or extension) of the FM file</p></li>
+<li><p status = "changed"><codeph>&lt;$FM_USER></codeph> - from <filepath
+    status = "new">maker.ini</filepath> RegInfo/User</p></li>
+<li><p status = "changed"><codeph>&lt;$FM_COMPANY></codeph> - from <filepath
+    status = "new">maker.ini</filepath> RegInfo/Company</p></li>
+<li><p status = "changed"><codeph>&lt;$OS_USERNAME></codeph> - %username%
+environment variable</p></li>
+<li><p status = "changed"><codeph>&lt;$OS_COMPUTERNAME></codeph> -
+%computername% environment variable</p></li>
+<li><p><codeph>&lt;$T_YYYY></codeph> - 4 digit year</p></li>
+<li><p><codeph>&lt;$T_YY></codeph> - 2 digit year</p></li>
+<li><p><codeph>&lt;$T_MM></codeph> - 2 digit month (zero padded)</p></li>
+<li><p><codeph>&lt;$T_MON></codeph> - 3 character month</p></li>
+<li><p><codeph>&lt;$T_MONTH></codeph> - full month name</p></li>
+<li><p><codeph>&lt;$T_DD></codeph> - 2 digit date (zero padded)</p></li>
+<li><p><codeph>&lt;$T_HOUR></codeph> - 2 digit hour (zero padded)</p></li>
+<li><p><codeph>&lt;$TITLE></codeph> - the actual text of the title
+(with “stop words” removed)</p></li>
+<li><p><codeph>&lt;$TITLE_NOSPACE></codeph> - the text of the title
+with spaces removed</p></li>
+<li><p><codeph>&lt;$TITLE_NOSPACECAMEL></codeph> - the text of the
+title, with spaces removed, using “camel” casing</p></li>
+<li><p><codeph>&lt;$TITLE_NOSPACECAMELLOW></codeph> - the text of
+the title, with spaces removed, using “camel” casing, and the first
+character lowercased</p></li>
+<li><p><codeph>&lt;$TITLE_SPACETOUNDER></codeph> - the text of the
+title with spaces replaced with underscores</p></li>
+<li><p status = "changed"><codeph status = "changed">&lt;$TITLE_SPACETODASH></codeph> -
+the text of the title with spaces replaced with dashes</p></li>
+<li status = "changed"><p><codeph>&lt;$UNIQUEID></codeph> - the
+unique ID as applied to the root topic element</p></li>
+<li><p><codeph>&lt;$TOPIC_TYPE></codeph> - the topic type’s element
+name</p></li>
+<li status = "new"><p status = "new"><codeph status = "new">&lt;$VAR(<i
+    status = "new">VARNAME</i>)></codeph> - the value of the <i
+    status = "new">VARNAME</i> variable</p></li>
+<li status = "new"><p status = "new"><codeph status = "new">&lt;$MARKERTEXT></codeph> -
+the value of the current marker’s marker text (for use with the Map
+Hypertext Markers command)</p></li>
+<li status = "new"><p status = "new"><codeph status = "new">&lt;$LINKTEXT></codeph> -
+the value of the current marker’s “link text” (for use with the
+Map Hypertext Markers command)</p></li>
+<li status = "changed"><p status = "changed"><codeph status = "changed">&lt;$URI-VAR(<i
+    status = "new">VARNAME</i>)></codeph> - the value of the <i
+    status = "new">VARNAME</i> variable, URI-encoded</p></li>
+<li status = "changed"><p status = "changed"><codeph status = "changed">&lt;$URI-MARKERTEXT></codeph> -
+the value of the current marker’s marker text, URI-encoded (for
+use with the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_hypertext"
+status = "changed"></cmdname> command)</p></li>
+<li status = "changed"><p status = "changed"><codeph status = "changed">&lt;$URI-LINKTEXT></codeph> -
+the value of the current marker’s “link text,” URI-encoded (for
+use with the <cmdname conref="_shared.xml#id131KC0I0VHS/cmd_hypertext"
+status = "changed"></cmdname> command)</p></li>
+<li status = "new"><p status = "new"><codeph status = "new">&lt;$IMG-COUNT></codeph> -
+the nth anchored frame processed. (For use with the AFrame to Raster
+command.)</p></li>
+<li status = "new"><p status = "new"><codeph status = "new">&lt;$IMG-DOCNAME></codeph> -
+the current document name containing the anchored frame being processed.
+(For use with the AFrame to Raster command.)</p></li>
+<li status = "new"><p status = "new"><codeph status = "new">&lt;$IMG-IMGNAME></codeph> -
+the first image file name in anchored frame. Note that this may
+be null, if there are no referenced images in the frame. (For use
+with the AFrame to Raster command.)</p></li></ul><note>Using time-based
+building blocks can result in errors if the conversion time spans
+the time unit boundary used in the building block. Use these building
+blocks with care.</note></section></body></topic>
